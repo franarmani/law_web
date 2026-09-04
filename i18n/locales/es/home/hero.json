@@ -1,17 +1,16 @@
 {
-  "eyebrow": "Estudio jurídico · Mar del Plata",
-  "titleLine1": "Protegemos tus derechos",
-  "titleLine2": "con soluciones legales modernas",
-  "description": "Asesoramiento estratégico y personalizado en salud, laboral, civil y tecnología legal. Claridad, compromiso y resultados en cada caso.",
+  "eyebrow": "Estudio jurídico · Mar del Plata, Argentina",
+  "titleLine1": "Derecho pensado",
+  "titleLine2": "con estrategia.",
+  "description": "Defendemos tus derechos y te acompañamos en cada etapa con atención directa, experiencia y soluciones jurídicas concretas.",
   "highlights": [
     { "label": "Amparos de salud", "slug": "salud" },
-    { "label": "Accidentes laborales", "slug": "accidentes-laborales" },
-    { "label": "Usucapión", "slug": "civil" },
+    { "label": "Derecho del trabajo", "slug": "laboral" },
+    { "label": "Derecho de familia", "slug": "familia" },
     { "label": "Legal Tech", "slug": "legal-tech" }
   ],
   "cta": {
-    "primary": "Consultanos",
-    "areas": "Ver áreas de práctica"
-  },
-  "imageAlt": "Escritorio profesional con laptop, notebook, contrato firmado y café"
+    "primary": "Consultar por WhatsApp",
+    "areas": "Áreas de práctica"
+  }
 }

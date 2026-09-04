@@ -12,6 +12,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
+  const staticRoutes = [
+    {
+      url: `${BASE_URL}/privacidad`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/aviso-legal`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+  ]
+
   return [
     {
       url: BASE_URL,
@@ -20,5 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...areaRoutes,
+    ...staticRoutes,
   ]
 }
+

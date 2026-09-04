@@ -1,0 +1,32 @@
+{
+  "name": "Derecho del Consumidor",
+  "shortName": "Consumidor",
+  "tagline": "Defensa del consumidor frente a empresas, bancos y tarjetas de crédito.",
+  "description": "Te representamos en reclamos e indemnizaciones ante empresas, bancos y entidades financieras cuando tus derechos como consumidor no son respetados. Actuamos frente a débitos no autorizados, incumplimientos de garantía y publicidad engañosa.",
+  "services": [
+    "Reclamos ante empresas por incumplimientos contractuales o de garantía.",
+    "Reclamos ante bancos y tarjetas de crédito por cargos indebidos.",
+    "Débitos no autorizados y cargos duplicados en cuentas y tarjetas.",
+    "Publicidad engañosa y prácticas comerciales abusivas.",
+    "Indemnizaciones por daños derivados de productos o servicios defectuosos.",
+    "Mediaciones y reclamos extrajudiciales previos a la vía judicial."
+  ],
+  "faq": [
+    {
+      "q": "¿Qué puedo reclamar si me cobraron algo que no autoricé?",
+      "a": "Podés reclamar la devolución del monto debitado y, en muchos casos, una indemnización adicional. Te ayudamos a intimar a la entidad y, si no hay respuesta, a iniciar el reclamo judicial correspondiente."
+    },
+    {
+      "q": "¿Qué hago si una empresa no respeta la garantía de un producto?",
+      "a": "La ley de defensa del consumidor te protege ante incumplimientos de garantía. Evaluamos tu caso y te acompañamos en el reclamo, ya sea directo con la empresa o por vía judicial si es necesario."
+    },
+    {
+      "q": "¿Puedo reclamar por publicidad engañosa?",
+      "a": "Sí. Si una empresa te vendió un producto o servicio con información falsa o engañosa, tenés derecho a reclamar. Analizamos la documentación y publicidad para determinar la mejor estrategia."
+    },
+    {
+      "q": "¿Tiene costo la primera consulta?",
+      "a": "No, la primera consulta es sin costo. Evaluamos tu situación y te explicamos con claridad las opciones antes de avanzar con cualquier gestión."
+    }
+  ]
+}

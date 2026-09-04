@@ -1,0 +1,32 @@
+{
+  "name": "Accidentes de Tránsito",
+  "shortName": "Tránsito",
+  "tagline": "Reclamos e indemnizaciones ante compañías de seguro.",
+  "description": "Te representamos en reclamos por daños y perjuicios derivados de accidentes de tránsito. Gestionamos la indemnización ante compañías de seguro, ya sea por daños materiales, lesiones personales o ambos.",
+  "services": [
+    "Reclamos por daños materiales al vehículo.",
+    "Reclamos por lesiones personales e incapacidad.",
+    "Gestión de indemnizaciones ante compañías de seguro.",
+    "Negociación de acuerdos extrajudiciales.",
+    "Demandas judiciales por daños y perjuicios.",
+    "Asesoramiento a peatones, ciclistas y motociclistas accidentados."
+  ],
+  "faq": [
+    {
+      "q": "Tuve un accidente de tránsito, ¿qué puedo reclamar?",
+      "a": "Podés reclamar los daños materiales del vehículo, gastos médicos, lucro cesante y una indemnización por las lesiones sufridas, según la responsabilidad en el hecho. Evaluamos tu caso en una consulta inicial sin costo."
+    },
+    {
+      "q": "¿Tengo que reclamarle a la compañía de seguros o puedo iniciar una demanda?",
+      "a": "En general primero se intenta un reclamo extrajudicial ante la aseguradora. Si no hay una respuesta satisfactoria, avanzamos con la demanda judicial correspondiente."
+    },
+    {
+      "q": "¿Cuánto tiempo tengo para reclamar después de un accidente?",
+      "a": "Los plazos de prescripción varían según el tipo de reclamo. Es importante consultar cuanto antes para no perder derechos y reunir la documentación necesaria a tiempo."
+    },
+    {
+      "q": "El accidente no fue mi responsabilidad, ¿igual necesito un abogado?",
+      "a": "Sí. Aunque la responsabilidad sea del otro conductor, contar con asesoramiento legal asegura que la indemnización que recibas sea justa y cubra todos los daños sufridos."
+    }
+  ]
+}

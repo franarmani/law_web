@@ -1,11 +1,10 @@
 {
   "eyebrow": "Nosotros",
-  "quote": "No tomamos más casos de los que podemos atender bien.",
-  "body": "Romio & Asociados es un estudio jurídico con base en Mar del Plata. Trabajamos como equipo en cada caso, combinando experiencia en diversas ramas del derecho para ofrecer una solución integral y eficiente.",
+  "quote": "Priorizamos la atención personalizada y el seguimiento riguroso de cada expediente, garantizando la máxima dedicación en cada caso que asumimos.",
+  "body": "Romio & Asociados nace en 2020 con el propósito de brindar una solución jurídica moderna, transparente y eficiente. Combinamos la experiencia en el litigio tradicional con la agilidad y adaptación a las nuevas necesidades digitales, ofreciendo también facilidades y opciones de pago adaptadas a cada cliente.",
   "metrics": [
-    { "value": "+10", "label": "Años de experiencia" },
-    { "value": "+500", "label": "Casos resueltos" },
-    { "value": "5", "label": "Áreas de práctica" }
+    { "value": "Desde 2020", "label": "Trayectoria institucional" },
+    { "value": "6", "label": "Áreas de práctica" }
   ],
-  "valuesLine": "Compromiso · Claridad · Resultados · Confidencialidad · Honorarios transparentes · Cercanía"
+  "valuesLine": "Compromiso · Rigor Jurídico · Transparencia · Confidencialidad · Atención Personalizada"
 }

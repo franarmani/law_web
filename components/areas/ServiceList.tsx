@@ -1,43 +1,34 @@
+// components/areas/ServiceList.tsx
 'use client'
 
 import type { Area } from '@/lib/areas'
-import { toRoman } from '@/lib/numerals'
-import StaggerGroup, { StaggerItem } from '@/components/motion/StaggerGroup'
-import SectionHeader from '@/components/motion/SectionHeader'
 import { t } from '@/i18n'
 
 export default function ServiceList({ area }: { area: Area }) {
   return (
-    <section className="bg-white py-16 px-6">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
+    <section className="bg-white py-24 lg:py-36">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          {/* Left Column: Heading & Area Description */}
           <div>
-            <SectionHeader
-              eyebrow={t('areas.ui.serviceList.eyebrow')}
-              title={t('areas.ui.serviceList.title')}
-              description={area.description}
-              showUnderline={false}
-            />
+            <p className="eyebrow">{t('areas.ui.serviceList.eyebrow')}</p>
+            <h2 className="mt-6">{t('areas.ui.serviceList.title')}</h2>
+            <p className="mt-5 max-w-[420px]">{area.description}</p>
           </div>
 
-          <StaggerGroup as="ul" className="list-none space-y-0">
+          {/* Right Column: List of Services */}
+          <ul className="flex flex-col border-t border-border">
             {area.services.map((service, i) => (
-              <StaggerItem key={service} as="li">
-                <div className="group relative border-b border-gray-100 py-4 pl-10 transition-colors hover:bg-gray-50/60">
-                  <span className="font-serif absolute left-0 top-1/2 -translate-y-1/2 text-xs font-bold text-brand-gold/60 transition-colors group-hover:text-brand-gold md:text-sm">
-                    {toRoman(i + 1)}
-                  </span>
-                  <span
-                    className="absolute bottom-0 left-10 right-0 h-px origin-left scale-x-0 bg-brand-gold transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
-                    aria-hidden
-                  />
-                  <span className="block text-sm leading-relaxed text-gray-700 md:text-base">
-                    {service}
-                  </span>
-                </div>
-              </StaggerItem>
+              <li key={service} className="flex items-baseline gap-6 border-b border-border py-6">
+                <span className="font-display shrink-0 text-[13px] font-light text-champagne">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="font-sans text-[15px] font-light leading-[1.7] text-ink">
+                  {service}
+                </span>
+              </li>
             ))}
-          </StaggerGroup>
+          </ul>
         </div>
       </div>
     </section>

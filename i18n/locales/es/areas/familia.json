@@ -1,0 +1,32 @@
+{
+  "name": "Derecho de Familia & Usucapión",
+  "shortName": "Familia",
+  "tagline": "Divorcios, alimentos, responsabilidad parental y usucapión.",
+  "description": "Acompañamos a nuestros clientes en procesos de familia con discreción y en trámites de usucapión con rigor técnico. Tramitamos divorcios de mutuo acuerdo y contenciosos, alimentos, régimen de comunicación, responsabilidad parental y juicios de usucapión o posesión.",
+  "services": [
+    "Divorcio vincular de mutuo acuerdo (exprés) o contencioso.",
+    "División y liquidación de bienes gananciales.",
+    "Alimentos entre cónyuges e hijos.",
+    "Régimen de comunicación y responsabilidad parental.",
+    "Usucapión breve y usucapión larga (veinteñal) de inmuebles.",
+    "Juicios sucesorios y declaratoria de herederos."
+  ],
+  "faq": [
+    {
+      "q": "¿Cuánto tarda un divorcio de mutuo acuerdo?",
+      "a": "Puede resolverse en 1 a 3 meses si ambas partes están de acuerdo en todos los términos. Es el proceso más rápido y con menor desgaste para la familia."
+    },
+    {
+      "q": "¿Qué pasa con los bienes si no hay acuerdo en el divorcio?",
+      "a": "Si no hay acuerdo, avanzamos con el proceso contencioso. El juez resuelve la división de los bienes gananciales conforme a la ley."
+    },
+    {
+      "q": "¿Qué es la usucapión y cuándo conviene iniciarla?",
+      "a": "Es un modo de adquirir la propiedad de un inmueble mediante la posesión continua durante el tiempo que fija la ley. Conviene iniciarla cuando poseés un inmueble hace años sin título actualizado, por compras informales o sucesiones incompletas."
+    },
+    {
+      "q": "¿Cuánto tiempo demora una sucesión?",
+      "a": "Una sucesión simple puede resolverse en 6 a 12 meses. Si hay conflicto entre herederos o bienes complejos, puede extenderse. Lo evaluamos en una consulta inicial sin costo."
+    }
+  ]
+}

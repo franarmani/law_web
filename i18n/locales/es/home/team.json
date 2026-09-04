@@ -1,0 +1,19 @@
+{
+  "eyebrow": "Nuestro equipo",
+  "title": "Profesionales del estudio",
+  "intro": "Un equipo de abogadas con dedicación directa a cada caso.",
+  "members": [
+    {
+      "name": "Dra. María José Romio",
+      "role": "Abogada",
+      "specialty": "Universidad Nacional de Mar del Plata",
+      "bio": "Prioriza la atención personalizada y el seguimiento riguroso de cada expediente."
+    },
+    {
+      "name": "Dra. Noelia Dulewicz",
+      "role": "Abogada",
+      "specialty": "Universidad Kennedy",
+      "bio": "Combina experiencia en litigio tradicional con una mirada moderna y eficiente sobre cada caso."
+    }
+  ]
+}

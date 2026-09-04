@@ -1,76 +1,46 @@
 // components/home/AboutSection.tsx
 'use client'
 
-import EditorialEyebrow from '@/components/brand/EditorialEyebrow'
-import RomioMonogram from '@/components/brand/RomioMonogram'
-import SectionRule from '@/components/brand/SectionRule'
-import OdometerCounter from '@/components/motion/OdometerCounter'
-import Reveal from '@/components/motion/Reveal'
+import Link from 'next/link'
 import { getDictionary, t } from '@/i18n'
+import ImageSlot from '@/components/ui/ImageSlot'
 
 export default function AboutSection() {
   const about = getDictionary().home.about
 
   return (
-    <section
-      id="nosotros"
-      className="relative overflow-hidden bg-brand-navy py-20 px-6 text-white"
-    >
-      <RomioMonogram className="pointer-events-none absolute -right-16 top-1/2 z-0 h-[min(90vw,28rem)] w-[min(90vw,28rem)] -translate-y-1/2 text-white/[0.04] md:-right-24" />
+    <section id="nosotros" className="bg-navy py-24 lg:py-36" aria-label="Sobre el estudio">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+          <ImageSlot label="Foto del estudio o del equipo (4:5 vertical)" aspect="4/5" onNavy />
 
-      <div className="relative z-10 mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <Reveal className="will-change-transform">
-            <div>
-              <div className="mb-6">
-                <EditorialEyebrow label={t('home.about.eyebrow')} tone="gold-on-dark" />
-              </div>
-              <blockquote className="relative">
-                <span
-                  className="font-serif absolute -left-1 -top-4 text-6xl leading-none text-brand-gold/55 md:text-7xl"
-                  aria-hidden
-                >
-                  &ldquo;
-                </span>
-                <p className="font-serif relative pl-6 text-2xl font-bold leading-snug text-white md:text-3xl lg:text-4xl">
-                  {t('home.about.quote')}
-                </p>
-                <div className="pl-6 pt-4">
-                  <SectionRule className="justify-start" maxWidth="14rem" />
-                </div>
-                <span
-                  className="font-serif mt-2 block pl-6 text-5xl leading-none text-brand-gold/55 md:text-6xl"
-                  aria-hidden
-                >
-                  &rdquo;
-                </span>
-              </blockquote>
-              <p className="mt-8 max-w-lg text-base leading-relaxed text-white/65">
-                {t('home.about.body')}
-              </p>
-            </div>
-          </Reveal>
+          <div>
+            <p className="eyebrow">{t('home.about.eyebrow')}</p>
 
-          <Reveal className="will-change-transform" delay={0.1}>
-            <div className="grid grid-cols-3 gap-6 text-center">
+            <p className="font-display mt-8 text-[26px] font-light italic leading-[1.4] text-white sm:text-[34px]">
+              &ldquo;{about.quote}&rdquo;
+            </p>
+
+            <p className="mt-7 max-w-[440px] !text-white/55">{about.body}</p>
+
+            <div className="mt-12 flex gap-16">
               {about.metrics.map((m) => (
                 <div key={m.label}>
-                  <div className="font-serif mb-2 text-4xl font-bold text-brand-gold md:text-5xl">
-                    <OdometerCounter value={m.value} />
-                  </div>
-                  <div className="font-sans text-[10px] font-medium uppercase leading-tight tracking-[0.18em] text-white/55">
+                  <p className="font-display text-[30px] font-light text-white">{m.value}</p>
+                  <p className="mt-2 font-sans text-[10px] font-normal uppercase tracking-[0.15em] text-white/40">
                     {m.label}
-                  </div>
+                  </p>
                 </div>
               ))}
             </div>
-          </Reveal>
-        </div>
 
-        <div className="relative z-10 mt-14 border-t border-white/10 pt-8">
-          <p className="text-center font-serif text-sm italic text-brand-gold/55 md:text-base">
-            {t('home.about.valuesLine')}
-          </p>
+            <Link
+              href="/#contacto"
+              className="link-primary on-navy mt-12 inline-block"
+            >
+              Conocé al estudio
+            </Link>
+          </div>
         </div>
       </div>
     </section>

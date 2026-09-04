@@ -1,0 +1,26 @@
+{
+  "eyebrow": "Preguntas frecuentes",
+  "title": "Preguntas frecuentes",
+  "items": [
+    {
+      "q": "¿Cómo solicito una consulta?",
+      "a": "Podés escribirnos por WhatsApp o completar el formulario de contacto. Te respondemos a la brevedad para coordinar una primera consulta."
+    },
+    {
+      "q": "¿Qué documentación necesito?",
+      "a": "Depende del caso. En la primera consulta te indicamos qué documentación es relevante para evaluar tu situación."
+    },
+    {
+      "q": "¿La atención es presencial o virtual?",
+      "a": "Ofrecemos ambas modalidades. Coordinamos la que mejor se adapte a tu disponibilidad y al tipo de consulta."
+    },
+    {
+      "q": "¿Cómo se informan los honorarios?",
+      "a": "Los honorarios se conversan de forma clara desde el inicio, antes de avanzar con cualquier gestión."
+    },
+    {
+      "q": "¿En qué zonas trabajan?",
+      "a": "Atendemos principalmente en Mar del Plata y la zona, con posibilidad de consultas a distancia."
+    }
+  ]
+}

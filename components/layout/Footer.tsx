@@ -1,112 +1,77 @@
-import Image from 'next/image'
+// components/layout/Footer.tsx
 import Link from 'next/link'
-import RomioWordmark from '@/components/brand/RomioWordmark'
-import Reveal from '@/components/motion/Reveal'
-import { areas, CONTACT_EMAIL, WHATSAPP_NUMBER } from '@/lib/areas'
+import { areas, CONTACT_EMAIL, WHATSAPP_URL } from '@/lib/areas'
 import { t } from '@/i18n'
-
-const headingClass =
-  'mb-4 font-sans text-[10px] font-semibold uppercase tracking-[0.28em] text-white/40'
 
 export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative overflow-hidden bg-brand-navy text-white">
-      <div
-        className="pointer-events-none absolute -left-1/4 top-0 h-[min(80vw,28rem)] w-[min(80vw,28rem)] rounded-full bg-brand-gold/15 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-1/4 bottom-0 h-[min(70vw,24rem)] w-[min(70vw,24rem)] rounded-full bg-brand-navy-light/25 blur-3xl"
-        aria-hidden
-      />
+    <footer className="bg-navy py-24 text-white">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 gap-14 border-b border-white/10 pb-16 lg:grid-cols-12 lg:gap-12">
+          {/* Column 1: Wordmark & Bio */}
+          <div className="lg:col-span-5">
+            <p className="font-display text-[18px] font-light uppercase tracking-[0.08em] text-white">
+              Romio &amp; Asociados
+            </p>
+            <p className="mt-6 max-w-[300px] font-sans text-sm font-light leading-[1.8] text-white/50">
+              {t('footer.studioBlurbLine1')} {t('footer.studioBlurbLine2')}
+            </p>
+          </div>
 
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-gold/70 to-transparent"
-        aria-hidden
-      />
-
-      <div className="relative z-10 mx-auto max-w-6xl px-6 pt-12">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
-          <Reveal className="will-change-transform">
-            <div className="rounded-xl border border-white/10 bg-white p-4 shadow-sm">
-              <Image
-                src="/logo/romio-color.jpg"
-                alt={t('common.brand.logoAltFooter')}
-                width={280}
-                height={120}
-                className="mx-auto h-auto w-full max-w-[220px] object-contain"
-                sizes="(max-width: 768px) 100vw, 220px"
-              />
-              <p className="mt-4 font-sans text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-navy/45">
-                {t('footer.studioEyebrow')}
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-brand-navy/70">
-                {t('footer.studioBlurbLine1')}
-                <br />
-                {t('footer.studioBlurbLine2')}
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal className="will-change-transform" delay={0.06}>
-            <div>
-              <h3 className={headingClass}>{t('footer.areasHeading')}</h3>
-              <ul className="space-y-2">
-                {areas.map((area) => (
-                  <li key={area.slug}>
-                    <Link
-                      href={`/areas/${area.slug}`}
-                      className="group inline-flex items-center gap-2 font-serif text-sm italic text-brand-gold/70 transition-colors hover:text-brand-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold rounded-sm"
-                    >
-                      {area.shortName}
-                      <span
-                        className="inline-block max-w-0 -translate-x-1 overflow-hidden font-sans not-italic opacity-0 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:max-w-[1em] group-hover:translate-x-0 group-hover:opacity-100"
-                        aria-hidden
-                      >
-                        →
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-
-          <Reveal className="will-change-transform" delay={0.1}>
-            <div>
-              <h3 className={headingClass}>{t('footer.contactHeading')}</h3>
-              <ul className="space-y-2 font-sans text-xs text-white/65">
-                <li>
-                  <a
-                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-sm transition-colors hover:text-brand-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold"
+          {/* Column 2: Practice Areas */}
+          <div className="lg:col-span-4">
+            <p className="eyebrow">{t('footer.areasHeading')}</p>
+            <ul className="mt-7 flex flex-col gap-4">
+              {areas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    href={`/areas/${area.slug}`}
+                    className="font-sans text-sm font-light text-white/55 transition-colors hover:text-champagne"
                   >
-                    {t('common.contact.whatsappLabelShort')}
-                  </a>
+                    {area.name}
+                  </Link>
                 </li>
-                <li>
-                  <a
-                    href={`mailto:${CONTACT_EMAIL}`}
-                    className="rounded-sm transition-colors hover:text-brand-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold"
-                  >
-                    {CONTACT_EMAIL}
-                  </a>
-                </li>
-                <li className="text-white/35">{t('footer.location')}</li>
-              </ul>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Contact */}
+          <div className="lg:col-span-3">
+            <p className="eyebrow">{t('footer.contactHeading')}</p>
+            <div className="mt-7 flex flex-col gap-3.5 font-sans text-sm font-light text-white/55">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-champagne"
+              >
+                {t('common.contact.whatsappLabelShort')}: +54 9 223 311-8656
+              </a>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="transition-colors hover:text-champagne"
+              >
+                {CONTACT_EMAIL}
+              </a>
+              <p>Rivadavia 3188, 1° Piso, Oficina 15, Mar del Plata</p>
+              <p>Atención: L–V 9:00 a 17:00 hs</p>
             </div>
-          </Reveal>
+          </div>
         </div>
 
-        <div className="relative mt-14 border-t border-white/10 pb-8 pt-12 text-center">
-          <RomioWordmark variant="display" className="select-none" />
-          <p className="relative z-10 mt-8 font-sans text-[10px] tracking-wide text-white/30">
-            {t('footer.copyright', { year })}
-          </p>
+        {/* Bottom Bar */}
+        <div className="flex flex-col gap-4 pt-8 font-sans text-[10px] uppercase tracking-[0.1em] text-white/30 sm:flex-row sm:items-center sm:justify-between">
+          <p>{t('footer.copyright', { year })}</p>
+          <div className="flex gap-6">
+            <Link href="/privacidad" className="transition-colors hover:text-champagne">
+              Política de Privacidad
+            </Link>
+            <Link href="/aviso-legal" className="transition-colors hover:text-champagne">
+              Aviso Legal
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

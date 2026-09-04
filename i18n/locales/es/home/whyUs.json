@@ -1,0 +1,30 @@
+{
+  "eyebrow": "Nuestro compromiso",
+  "title": "Por qué elegirnos",
+  "reasons": [
+    {
+      "title": "Atención directa",
+      "description": "Hablás directamente con los profesionales que llevan tu caso, sin intermediarios."
+    },
+    {
+      "title": "Explicaciones claras",
+      "description": "Te explicamos cada paso del proceso en términos simples, sin tecnicismos innecesarios."
+    },
+    {
+      "title": "Estrategias personalizadas",
+      "description": "Definimos el camino legal según tus objetivos y la particularidad de tu situación."
+    },
+    {
+      "title": "Seguimiento del caso",
+      "description": "Te mantenemos informado en cada etapa, desde la consulta inicial hasta la resolución."
+    },
+    {
+      "title": "Confidencialidad",
+      "description": "Toda la información que compartís está protegida por el secreto profesional."
+    },
+    {
+      "title": "Honorarios informados con claridad",
+      "description": "Conversamos los honorarios desde el inicio, sin sorpresas."
+    }
+  ]
+}

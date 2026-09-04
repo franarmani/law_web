@@ -1,28 +1,28 @@
-// components/areas/AreaFAQ.tsx
+// components/home/FAQSection.tsx
 'use client'
 
 import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import type { Area } from '@/lib/areas'
-import { t } from '@/i18n'
+import { getDictionary } from '@/i18n'
 
-export default function AreaFAQ({ area }: { area: Area }) {
+export default function FAQSection() {
+  const { eyebrow, title, items } = getDictionary().home.faq
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const reduced = useReducedMotion()
 
   return (
-    <section className="bg-ivory py-24 lg:py-36">
+    <section className="bg-white py-24 lg:py-36" aria-label="Preguntas frecuentes">
       <div className="mx-auto max-w-[1180px] px-6 sm:px-8 lg:px-12">
         <div className="mx-auto mb-24 max-w-2xl text-center">
-          <p className="eyebrow">{t('areas.ui.faq.eyebrow')}</p>
-          <h2 className="mt-6">{t('areas.ui.faq.title')}</h2>
+          <p className="eyebrow">{eyebrow}</p>
+          <h2 className="mt-6">{title}</h2>
         </div>
 
         <div className="mx-auto flex max-w-[720px] flex-col">
-          {area.faq.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = openIndex === i
             return (
-              <div key={i} className="border-t border-border py-8 last:border-b">
+              <div key={item.q} className="border-t border-border py-8 last:border-b">
                 <button
                   type="button"
                   className="flex w-full items-baseline justify-between gap-6 text-left focus-visible:outline-none"

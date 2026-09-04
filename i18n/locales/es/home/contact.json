@@ -1,22 +1,23 @@
 {
-  "eyebrow": "Contacto",
-  "title": "¿Tenés una consulta?",
-  "intro": "Escribinos sin compromiso. La primera consulta es gratuita y respondemos a la brevedad.",
+  "eyebrow": "Atención personalizada",
+  "title": "Solicitá tu consulta legal",
+  "intro": "Escribinos sin compromiso. Analizamos tu situación y te brindamos respuesta a la brevedad.",
   "labels": {
     "whatsapp": "WhatsApp",
-    "email": "Email",
-    "location": "Ubicación",
+    "email": "Email institucional",
+    "location": "Ubicación y atención",
     "linkWhatsApp": "Escribinos por WhatsApp",
-    "hoursPlaceholder": "Atención L–V 9:00–18:00 (placeholder)"
+    "hoursPlaceholder": "Atención presencial y virtual, de Lunes a Viernes de 9:00 a 17:00 hs"
   },
   "form": {
-    "nameLabel": "Nombre",
-    "namePlaceholder": "Tu nombre",
-    "areaLabel": "Área",
-    "areaPlaceholder": "Elegí un área (opcional)",
-    "messageLabel": "Mensaje",
-    "messagePlaceholder": "Contanos brevemente tu situación",
-    "submit": "Enviar por WhatsApp"
+    "nameLabel": "Nombre completo",
+    "namePlaceholder": "Ingresá tu nombre",
+    "areaLabel": "Área de consulta",
+    "areaPlaceholder": "Seleccioná el área legal (opcional)",
+    "messageLabel": "Consulta o mensaje",
+    "messagePlaceholder": "Describí brevemente tu caso o consulta legal",
+    "submit": "Enviar consulta por WhatsApp"
   },
-  "locationLine": "Mar del Plata, Argentina"
+  "locationLine": "Rivadavia 3188, 1° Piso, Oficina 15, Mar del Plata"
 }
+

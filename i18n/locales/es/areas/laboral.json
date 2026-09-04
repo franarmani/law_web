@@ -1,0 +1,32 @@
+{
+  "name": "Derecho del Trabajo",
+  "shortName": "Laboral",
+  "tagline": "Asesoramiento a trabajadores y empleadores en despidos y reclamos laborales.",
+  "description": "Asesoramos tanto a trabajadores como a empleadores en todo tipo de conflictos laborales: despidos, trabajo no registrado, accidentes de trabajo y reclamos ante la ART. Buscamos la solución más conveniente para cada situación.",
+  "services": [
+    "Despidos con y sin causa — cálculo y reclamo de indemnizaciones.",
+    "Trabajo no registrado o registrado de forma deficiente.",
+    "Reclamos por diferencias salariales y horas extras.",
+    "Accidentes de trabajo y enfermedades profesionales ante la ART.",
+    "Asesoramiento a empleadores en desvinculaciones y contratos laborales.",
+    "Mediaciones y acuerdos extrajudiciales en conflictos laborales."
+  ],
+  "faq": [
+    {
+      "q": "Me despidieron, ¿qué me corresponde cobrar?",
+      "a": "Depende de si el despido fue con o sin causa, tu antigüedad y otros factores. Evaluamos tu situación en una consulta inicial sin costo y calculamos exactamente qué te corresponde reclamar."
+    },
+    {
+      "q": "Trabajo en negro, ¿puedo reclamar igual?",
+      "a": "Sí. El trabajo no registrado tiene protección legal específica, con indemnizaciones agravadas a favor del trabajador. Te asesoramos sobre cómo reunir pruebas y avanzar con el reclamo."
+    },
+    {
+      "q": "Tuve un accidente en el trabajo, ¿qué debo hacer?",
+      "a": "Debés dar aviso a tu empleador y a la ART lo antes posible. Te acompañamos en todo el proceso, desde la denuncia hasta el reclamo de la indemnización que corresponda por incapacidad."
+    },
+    {
+      "q": "Soy empleador, ¿también pueden asesorarme?",
+      "a": "Sí, asesoramos a empleadores en la redacción de contratos, desvinculaciones y en la prevención y resolución de conflictos laborales."
+    }
+  ]
+}
