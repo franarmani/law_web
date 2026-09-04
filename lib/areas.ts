@@ -24,8 +24,18 @@ export type Area = AreaMeta & AreaContent
 export const WHATSAPP_NUMBER = '5492233118656'
 export const CONTACT_EMAIL = 'romio.asociados@gmail.com'
 
-export function buildWhatsappUrl(message: string): string {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+/**
+ * Los tres teléfonos de contacto directo del estudio, sin identificar a
+ * qué profesional pertenece cada uno (pedido explícito del cliente).
+ */
+export const CONTACT_PHONES = [
+  { number: '5492233118656', display: '+54 9 223 311-8656' },
+  { number: '5492235895221', display: '+54 9 223 589-5221' },
+  { number: '5491131686545', display: '+54 9 11 3168-6545' },
+] as const
+
+export function buildWhatsappUrl(message: string, number: string = WHATSAPP_NUMBER): string {
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`
 }
 
 export const WHATSAPP_URL = buildWhatsappUrl(

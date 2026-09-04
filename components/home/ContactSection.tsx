@@ -4,8 +4,9 @@
 import { useState, type FormEvent } from 'react'
 import {
   WHATSAPP_NUMBER,
-  WHATSAPP_URL,
   CONTACT_EMAIL,
+  CONTACT_PHONES,
+  buildWhatsappUrl,
   areas,
 } from '@/lib/areas'
 import { interpolate, t } from '@/i18n'
@@ -60,14 +61,19 @@ export default function ContactSection() {
             <div className="mt-14 flex flex-col">
               <div className="border-t border-border py-7">
                 <p className="eyebrow">{t('home.contact.labels.whatsapp')}</p>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-display mt-2 block text-[19px] font-light text-navy transition-colors hover:text-gold-text"
-                >
-                  {t('home.contact.labels.linkWhatsApp')}
-                </a>
+                <div className="mt-2 flex flex-col gap-1.5">
+                  {CONTACT_PHONES.map((phone) => (
+                    <a
+                      key={phone.number}
+                      href={buildWhatsappUrl(t('common.whatsapp.defaultOpeningMessage'), phone.number)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-display block text-[19px] font-light text-navy transition-colors hover:text-gold-text"
+                    >
+                      {phone.display}
+                    </a>
+                  ))}
+                </div>
               </div>
               <div className="border-t border-border py-7">
                 <p className="eyebrow">{t('home.contact.labels.email')}</p>
