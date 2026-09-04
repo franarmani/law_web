@@ -1,9 +1,8 @@
 // components/areas/AreaHero.tsx
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
-import { WHATSAPP_URL, areaImages, type Area } from '@/lib/areas'
+import { WHATSAPP_URL, type Area } from '@/lib/areas'
 import { t } from '@/i18n'
 
 function ArrowLeftIcon({ className }: { className?: string }) {
@@ -38,30 +37,17 @@ export default function AreaHero({ area }: { area: Area }) {
           {t('areas.ui.hero.backToAreas')}
         </Link>
 
-        <div className="mt-14 grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          <div>
-            <p className="eyebrow">Área de especialidad jurídica</p>
+        <div className="mx-auto mt-14 max-w-[720px] text-center">
+          <p className="eyebrow">Área de especialidad jurídica</p>
 
-            <h1 className="mt-6 text-[38px] sm:text-[48px] lg:text-[58px]">{area.name}</h1>
+          <h1 className="mt-6 text-[38px] sm:text-[48px] lg:text-[58px]">{area.name}</h1>
 
-            <p className="mt-6 max-w-2xl">{area.tagline}</p>
+          <p className="mx-auto mt-6 max-w-2xl">{area.tagline}</p>
 
-            <div className="mt-10">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="link-primary">
-                {t('areas.ui.hero.primaryCta')}
-              </a>
-            </div>
-          </div>
-
-          <div className="relative aspect-[4/5] w-full overflow-hidden">
-            <Image
-              src={areaImages[area.slug]}
-              alt={area.name}
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 500px"
-            />
+          <div className="mt-10">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="link-primary">
+              {t('areas.ui.hero.primaryCta')}
+            </a>
           </div>
         </div>
       </div>

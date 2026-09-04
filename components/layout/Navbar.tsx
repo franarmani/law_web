@@ -1,6 +1,7 @@
 // components/layout/Navbar.tsx
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useMemo, useState } from 'react'
@@ -28,9 +29,21 @@ export default function Navbar() {
       <div className="mx-auto flex h-[100px] max-w-[1180px] items-center justify-between px-6 sm:px-8 lg:px-12">
         <Link
           href="/"
-          className="font-display text-[20px] font-light uppercase tracking-[0.08em] text-navy focus-visible:outline-none"
+          className="flex items-center gap-3 focus-visible:outline-none"
         >
-          Romio &amp; Asociados
+          <span className="relative h-11 w-11 shrink-0">
+            <Image
+              src="/logo/romio-color.jpg"
+              alt="Romio & Asociados"
+              fill
+              className="object-contain"
+              sizes="44px"
+              priority
+            />
+          </span>
+          <span className="font-display text-[20px] font-light uppercase tracking-[0.08em] text-navy">
+            Romio &amp; Asociados
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-14 lg:flex">

@@ -42,15 +42,6 @@ export const WHATSAPP_URL = buildWhatsappUrl(
   t('common.whatsapp.defaultOpeningMessage'),
 )
 
-export const areaImages: Record<AreaSlug, string> = {
-  consumidor: '/images/area-consumidor.jpg',
-  salud: '/images/area-salud.jpg',
-  'accidentes-transito': '/images/area-divorcios.jpg',
-  laboral: '/images/area-laboral.jpg',
-  familia: '/images/area-civil.jpg',
-  'legal-tech': '/images/area-legal-tech.jpg',
-}
-
 export const areaMetas: readonly AreaMeta[] = [
   { slug: 'consumidor', accent: '#b8954a', accentLight: '#f6efe0' },
   { slug: 'salud', accent: '#b8954a', accentLight: '#f6efe0' },
