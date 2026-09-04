@@ -35,10 +35,10 @@ export default function AboutSection() {
             </div>
 
             <Link
-              href="/#contacto"
+              href="/#areas"
               className="link-primary on-navy mt-12 inline-block"
             >
-              Conocé al estudio
+              Ver áreas de práctica
             </Link>
           </div>
         </div>
