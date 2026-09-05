@@ -6,20 +6,22 @@
   --color-ivory: #F5F1E9;
   --color-navy: #101D32;
   --color-navy-secondary: #1D304D;
-  --color-graphite: #20242A;
-  --color-gold-dark: #A27D3F;
-  --color-gold-hover: #8C6B34;
+  --color-graphite: #1A1F28;
+  --color-gold-dark: #9C7737;
+  --color-gold-bright: #B8934C;
+  --color-gold-hover: #866327;
   --color-gold-soft: #EFE6D5;
-  --color-text-gray: #5F6670;
+  --color-text-gray: #4A5260;
+  --color-text-muted: #555E6D;
   --color-border-warm: #DDD7CC;
-  --color-border-navy: rgba(255, 255, 255, 0.12);
+  --color-border-navy: rgba(255, 255, 255, 0.14);
 
-  /* Legacy aliases for compatibility */
+  /* Legacy aliases */
   --color-white: #FCFBF8;
-  --color-ink: #20242A;
-  --color-champagne: #A27D3F;
-  --color-gold-text: #A27D3F;
-  --color-muted: #5F6670;
+  --color-ink: #1A1F28;
+  --color-champagne: #9C7737;
+  --color-gold-text: #9C7737;
+  --color-muted: #4A5260;
   --color-border: #DDD7CC;
 
   /* Font families */
@@ -30,7 +32,8 @@
 html {
   scroll-behavior: smooth;
   background-color: #FCFBF8;
-  color: #20242A;
+  color: #1A1F28;
+  font-size: 16px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -42,7 +45,7 @@ html {
 body {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-weight: 400;
-  color: #20242A;
+  color: #1A1F28;
   background-color: #FCFBF8;
   -webkit-font-smoothing: antialiased;
 }
@@ -55,13 +58,13 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-/* Tipografía Editorial — Playfair Display + Inter */
+/* Tipografía Editorial Refinada */
 @layer base {
   h1, .text-h1 {
     font-family: var(--font-serif), Georgia, serif;
     font-weight: 600;
-    font-size: clamp(2.5rem, 4.8vw, 4.375rem); /* 40px a 70px */
-    line-height: 1.14;
+    font-size: clamp(2.6rem, 5vw, 4.5rem); /* 42px a 72px */
+    line-height: 1.12;
     letter-spacing: -0.015em;
     color: #101D32;
   }
@@ -69,8 +72,8 @@ body {
   h2, .text-h2 {
     font-family: var(--font-serif), Georgia, serif;
     font-weight: 600;
-    font-size: clamp(2rem, 3.2vw, 3rem); /* 32px a 48px */
-    line-height: 1.2;
+    font-size: clamp(2.1rem, 3.5vw, 3.15rem); /* 34px a 50px */
+    line-height: 1.18;
     letter-spacing: -0.01em;
     color: #101D32;
   }
@@ -78,49 +81,45 @@ body {
   h3, .text-h3 {
     font-family: var(--font-serif), Georgia, serif;
     font-weight: 600;
-    font-size: clamp(1.35rem, 1.8vw, 1.65rem); /* 22px a 26px */
-    line-height: 1.3;
+    font-size: clamp(1.45rem, 2vw, 1.75rem); /* 23px a 28px */
+    line-height: 1.28;
     color: #101D32;
   }
 
   p, .text-body {
     font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 400;
-    font-size: 16.5px;
-    line-height: 1.7;
-    color: #5F6670;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #4A5260;
   }
 }
 
 /* Acento dentro de un titular */
 .accent {
-  font-style: normal;
-  font-weight: 600;
-  color: #A27D3F;
+  font-style: italic;
+  font-weight: 500;
+  color: #9C7737;
 }
 
 /* Eyebrow — etiqueta institucional en mayúsculas */
 .eyebrow {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #A27D3F;
+  color: #9C7737;
 }
 
 .eyebrow.on-navy {
-  color: #A27D3F;
+  color: #B8934C;
 }
 
-.eyebrow.muted {
-  color: #5F6670;
-}
-
-/* Botones Editoriales */
+/* Botones Editoriales con Escala Incrementada */
 .btn-primary {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -128,26 +127,26 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 2.25rem;
   background-color: #101D32;
   color: #FCFBF8;
   border: 1px solid #101D32;
   border-radius: 0;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  box-shadow: 0 1px 2px rgba(16, 29, 50, 0.05);
+  box-shadow: 0 1px 3px rgba(16, 29, 50, 0.08);
 }
 
 .btn-primary:hover {
-  background-color: #A27D3F;
-  border-color: #A27D3F;
+  background-color: #9C7737;
+  border-color: #9C7737;
   color: #FCFBF8;
   transform: translateY(-1px);
 }
 
 .btn-primary.on-navy {
-  background-color: #A27D3F;
-  border-color: #A27D3F;
+  background-color: #B8934C;
+  border-color: #B8934C;
   color: #FCFBF8;
 }
 
@@ -159,7 +158,7 @@ body {
 
 .btn-secondary {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -167,12 +166,12 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 2.25rem;
   background-color: transparent;
   color: #101D32;
-  border: 1px solid #101D32;
+  border: 1.5px solid #101D32;
   border-radius: 0;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
@@ -183,7 +182,7 @@ body {
 
 .btn-secondary.on-navy {
   color: #FCFBF8;
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .btn-secondary.on-navy:hover {
@@ -195,7 +194,7 @@ body {
 /* Enlaces editoriales */
 .link-primary {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -204,50 +203,41 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding-bottom: 3px;
-  border-bottom: 1.5px solid #A27D3F;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #9C7737;
   transition: all 0.2s ease-in-out;
 }
 
 .link-primary:hover {
-  color: #A27D3F;
+  color: #9C7737;
   border-bottom-color: #101D32;
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
 .link-primary.on-navy {
   color: #FCFBF8;
-  border-bottom-color: #A27D3F;
+  border-bottom-color: #B8934C;
 }
 
 .link-primary.on-navy:hover {
-  color: #A27D3F;
+  color: #B8934C;
   border-bottom-color: #FCFBF8;
 }
 
 .link-secondary {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 14.5px;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #5F6670;
+  color: #4A5260;
   text-decoration: none;
-  padding-bottom: 3px;
-  border-bottom: 1px solid #DDD7CC;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #DDD7CC;
   transition: all 0.2s ease-in-out;
 }
 
 .link-secondary:hover {
   color: #101D32;
-  border-bottom-color: #A27D3F;
-}
-
-/* Microinteracciones sutiles */
-.editorial-hover {
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.editorial-hover:hover {
-  border-color: #A27D3F;
+  border-bottom-color: #9C7737;
 }

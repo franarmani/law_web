@@ -11,15 +11,15 @@ export default function TeamSection() {
   ]
 
   return (
-    <section className="w-full bg-[#FCFBF8] py-24 lg:py-32" aria-label="Profesionales del estudio">
-      <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-14 xl:px-16">
+    <section className="w-full bg-[#FCFBF8] py-24 lg:py-28 border-t border-[#DDD7CC]" aria-label="Profesionales del estudio">
+      <div className="mx-auto max-w-[1240px] px-6 sm:px-10 lg:px-12 xl:px-14">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#DDD7CC]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-[#A27D3F]" aria-hidden="true" />
-              <p className="font-sans text-[12.5px] font-bold uppercase tracking-[0.16em] text-[#A27D3F]">
+              <span className="h-px w-10 bg-[#9C7737]" aria-hidden="true" />
+              <p className="font-sans text-[13px] font-bold uppercase tracking-[0.18em] text-[#9C7737]">
                 {eyebrow}
               </p>
             </div>
@@ -27,7 +27,7 @@ export default function TeamSection() {
               {title}
             </h2>
           </div>
-          <p className="max-w-[460px] font-sans text-[16px] sm:text-[17px] leading-[1.65] text-[#5F6670]">
+          <p className="max-w-[480px] font-sans text-[16.5px] sm:text-[17.5px] leading-[1.7] text-[#4A5260]">
             {intro}
           </p>
         </div>
@@ -37,50 +37,50 @@ export default function TeamSection() {
           {members.map((member, idx) => (
             <div
               key={member.name}
-              className="group relative flex flex-col justify-between border-t-2 border-[#A27D3F] bg-[#F5F1E9] p-8 sm:p-12 transition-all duration-200 hover:shadow-[0_8px_30px_rgba(16,29,50,0.06)]"
+              className="group relative flex flex-col justify-between border-t-2 border-[#9C7737] bg-[#F5F1E9] p-9 sm:p-12 transition-all duration-200 hover:shadow-[0_8px_30px_rgba(16,29,50,0.06)]"
             >
               <div>
                 {/* Monogram Stamp & Role */}
                 <div className="flex items-center justify-between border-b border-[#DDD7CC] pb-6">
-                  <span className="flex h-14 w-14 items-center justify-center border border-[#A27D3F] bg-[#FCFBF8] font-display text-[18px] font-semibold text-[#A27D3F]">
+                  <span className="flex h-16 w-16 items-center justify-center border border-[#9C7737] bg-[#FCFBF8] font-display text-[20px] font-semibold text-[#9C7737] shadow-sm">
                     {initials[idx]?.monogram ?? 'RA'}
                   </span>
                   <div className="text-right">
-                    <span className="font-sans text-[11px] font-bold uppercase tracking-[0.16em] text-[#A27D3F]">
+                    <span className="font-sans text-[12px] font-bold uppercase tracking-[0.16em] text-[#9C7737]">
                       {member.role}
                     </span>
-                    <p className="font-sans text-[12px] text-[#5F6670] mt-0.5">
+                    <p className="font-sans text-[13px] text-[#555E6D] mt-0.5 font-medium">
                       Colegiada en PBA
                     </p>
                   </div>
                 </div>
 
                 {/* Name */}
-                <h3 className="mt-7 text-[26px] sm:text-[28px] font-semibold text-[#101D32]">
+                <h3 className="mt-8 text-[26px] sm:text-[30px] font-semibold text-[#101D32]">
                   {member.name}
                 </h3>
 
                 {/* University / Specialty */}
-                <p className="mt-2 font-display text-[15.5px] font-medium text-[#A27D3F]">
+                <p className="mt-2.5 font-display text-[16.5px] font-medium text-[#9C7737]">
                   {member.specialty}
                 </p>
 
                 {/* Bio */}
-                <p className="mt-4 font-sans text-[16px] leading-[1.7] text-[#5F6670]">
+                <p className="mt-5 font-sans text-[16.5px] leading-[1.75] text-[#4A5260]">
                   {member.bio}
                 </p>
               </div>
 
-              {/* Consultation Link */}
-              <div className="mt-8 border-t border-[#DDD7CC] pt-6">
+              {/* Action Link */}
+              <div className="mt-10 border-t border-[#DDD7CC] pt-6">
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-primary inline-flex items-center text-[13.5px]"
+                  className="link-primary inline-flex items-center text-[14.5px] font-bold"
                 >
                   Consultar con la profesional
-                  <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                  <span className="transition-transform duration-200 group-hover:translate-x-1.5">→</span>
                 </a>
               </div>
             </div>
