@@ -1,97 +1,126 @@
 // components/home/AreasGrid.tsx
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { areas, WHATSAPP_URL } from '@/lib/areas'
 import { t } from '@/i18n'
 
 export default function AreasGrid() {
+  const [activeArea, setActiveArea] = useState<string | null>(areas[0]?.slug ?? null)
+
   return (
-    <section id="areas" className="w-full bg-[#F5F1E9] py-24 lg:py-28" aria-label="Áreas de práctica">
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 md:px-8 lg:px-10">
+    <section id="areas" className="w-full bg-[#F5F1E9] py-28 lg:py-36 border-t border-[#DDD7CC]" aria-label="Áreas de práctica">
+      <div className="mx-auto max-w-[1320px] px-6 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#DDD7CC]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-14 border-b border-[#DDD7CC]">
           <div>
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-[#9C7737]" aria-hidden="true" />
-              <p className="font-sans text-[13px] font-bold uppercase tracking-[0.18em] text-[#9C7737]">
-                {t('home.areasGrid.eyebrow')}
+              <p className="font-sans text-[13px] font-bold uppercase tracking-[0.2em] text-[#9C7737]">
+                {t('home.areasGrid.eyebrow')} · Especialidades
               </p>
             </div>
-            <h2 className="mt-4 text-[34px] sm:text-[42px] lg:text-[48px] font-semibold leading-[1.18] text-[#101D32]">
+            <h2 className="mt-4 text-[38px] sm:text-[48px] lg:text-[56px] font-semibold leading-[1.12] text-[#101D32]">
               {t('home.areasGrid.title')}
             </h2>
           </div>
-          <p className="max-w-[480px] font-sans text-[16.5px] sm:text-[17.5px] leading-[1.7] text-[#424956]">
+          <p className="max-w-[500px] font-sans text-[17px] sm:text-[18px] leading-[1.7] text-[#424956]">
             {t('home.areasGrid.description')}
           </p>
         </div>
 
-        {/* Editorial Grid */}
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
-          {areas.map((area, i) => (
-            <div
-              key={area.slug}
-              className="group flex h-full flex-col justify-between border border-[#DDD7CC] bg-[#FCFBF8] p-8 sm:p-11 transition-all duration-200 hover:border-[#9C7737] hover:shadow-[0_8px_30px_rgba(16,29,50,0.06)]"
-            >
-              <div>
-                {/* Number & Specialty Tag */}
-                <div className="flex items-center justify-between border-b border-[#DDD7CC] pb-5">
-                  <span className="font-display text-[30px] font-semibold text-[#9C7737]">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="font-sans text-[12px] font-bold uppercase tracking-[0.16em] text-[#4E5664]">
-                    Especialidad Jurídica
-                  </span>
+        {/* Editorial Signature List (Interactive Full-Width Rows) */}
+        <div className="border-b border-[#DDD7CC]">
+          {areas.map((area, i) => {
+            const isHoveredOrActive = activeArea === area.slug
+            return (
+              <Link
+                key={area.slug}
+                href={`/areas/${area.slug}`}
+                onMouseEnter={() => setActiveArea(area.slug)}
+                className={`group relative block w-full border-t border-[#DDD7CC] py-8 sm:py-10 px-6 sm:px-10 transition-all duration-300 ${
+                  isHoveredOrActive
+                    ? 'bg-[#101D32] text-white'
+                    : 'bg-[#FCFBF8] text-[#101D32] hover:bg-[#101D32] hover:text-white'
+                }`}
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                  
+                  {/* Column 1: Large Gold Numeral + Area Name (6 cols) */}
+                  <div className="lg:col-span-6 flex items-start sm:items-center gap-6 sm:gap-8">
+                    <span 
+                      className={`font-display text-[32px] sm:text-[38px] font-semibold transition-all duration-300 ${
+                        isHoveredOrActive ? 'text-[#B8934C] translate-x-1' : 'text-[#9C7737] group-hover:text-[#B8934C] group-hover:translate-x-1'
+                      }`}
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <h3 className="text-[26px] sm:text-[30px] font-semibold leading-tight transition-colors">
+                        {area.name}
+                      </h3>
+                      <p className={`mt-1 font-sans text-[13px] font-bold uppercase tracking-[0.16em] ${
+                        isHoveredOrActive ? 'text-[#B8934C]' : 'text-[#555E6D] group-hover:text-[#B8934C]'
+                      }`}>
+                        Especialidad Jurídica
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Column 2: Tagline & Top Service Summary (5 cols) */}
+                  <div className="lg:col-span-5 flex flex-col justify-center">
+                    <p className={`font-sans text-[16px] sm:text-[16.5px] leading-[1.65] ${
+                      isHoveredOrActive ? 'text-[#D4DEEB]' : 'text-[#424956] group-hover:text-[#D4DEEB]'
+                    }`}>
+                      {area.tagline}
+                    </p>
+                    
+                    {/* Inline Key Services Preview */}
+                    <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[13.5px]">
+                      {area.services.slice(0, 2).map((srv, sIdx) => (
+                        <span 
+                          key={sIdx}
+                          className={`inline-flex items-center gap-1.5 ${
+                            isHoveredOrActive ? 'text-white/80' : 'text-[#1A1F28] group-hover:text-white/80'
+                          }`}
+                        >
+                          <span className="text-[#9C7737] font-bold">―</span>
+                          <span className="truncate max-w-[280px]">{srv}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Column 3: Big Editorial Arrow (1 col) */}
+                  <div className="hidden lg:flex lg:col-span-1 justify-end">
+                    <span 
+                      className={`font-display text-[32px] transition-transform duration-300 ${
+                        isHoveredOrActive ? 'text-[#B8934C] translate-x-2' : 'text-[#9C7737] group-hover:text-[#B8934C] group-hover:translate-x-2'
+                      }`}
+                    >
+                      →
+                    </span>
+                  </div>
+
                 </div>
-
-                {/* Area Title */}
-                <h3 className="mt-7 text-[25px] sm:text-[28px] font-semibold text-[#101D32] transition-colors group-hover:text-[#9C7737]">
-                  {area.name}
-                </h3>
-
-                {/* Description */}
-                <p className="mt-4 font-sans text-[16.5px] leading-[1.7] text-[#424956]">
-                  {area.tagline}
-                </p>
-
-                {/* 2 to 3 Key Services Highlighted */}
-                <ul className="mt-6 space-y-3 border-t border-[#DDD7CC]/60 pt-6">
-                  {area.services.slice(0, 2).map((service, sIdx) => (
-                    <li key={sIdx} className="flex items-start gap-3 font-sans text-[15px] text-[#1A1F28]">
-                      <span className="text-[#9C7737] font-bold text-base leading-none mt-0.5">―</span>
-                      <span className="leading-snug">{service}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Action Link */}
-              <div className="mt-9 border-t border-[#DDD7CC] pt-6">
-                <Link
-                  href={`/areas/${area.slug}`}
-                  className="link-primary inline-flex items-center text-[15px] font-bold"
-                >
-                  Conocer el área
-                  <span className="transition-transform duration-200 group-hover:translate-x-1.5">→</span>
-                </Link>
-              </div>
-            </div>
-          ))}
+              </Link>
+            )
+          })}
         </div>
 
-        {/* Highlighted CTA Piece (Navy Card) */}
-        <div className="mt-14 border border-[#101D32] bg-[#101D32] p-9 sm:p-12 text-white">
+        {/* Highlighted Full-Width Consultation Banner */}
+        <div className="mt-16 border border-[#101D32] bg-[#101D32] p-10 sm:p-14 text-white">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="max-w-2xl">
-              <span className="font-sans text-[12px] font-bold uppercase tracking-[0.2em] text-[#B8934C]">
-                Orientación personalizada
+              <span className="font-sans text-[12.5px] font-bold uppercase tracking-[0.22em] text-[#B8934C]">
+                Orientación Legal Personalizada
               </span>
-              <h3 className="mt-3 text-[26px] sm:text-[30px] font-semibold text-white">
+              <h3 className="mt-3 text-[28px] sm:text-[34px] font-semibold text-white">
                 {t('home.areasGrid.ctaCardTitle')}
               </h3>
-              <p className="mt-2.5 font-sans text-[16.5px] leading-[1.65] text-[#D4DEEB]">
+              <p className="mt-3 font-sans text-[17px] leading-[1.7] text-[#D4DEEB]">
                 {t('home.areasGrid.ctaCardBody')}
               </p>
             </div>
@@ -99,7 +128,7 @@ export default function AreasGrid() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary shrink-0 !bg-[#B8934C] !border-[#B8934C] !text-[#FCFBF8] hover:!bg-[#FCFBF8] hover:!text-[#101D32] min-h-[52px] px-9 text-[15.5px]"
+              className="btn-primary shrink-0 !bg-[#B8934C] !border-[#B8934C] !text-[#FCFBF8] hover:!bg-[#FCFBF8] hover:!text-[#101D32] min-h-[56px] px-10 text-[16px]"
             >
               {t('common.cta.letsTalk')}
             </a>

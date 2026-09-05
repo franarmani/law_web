@@ -26,10 +26,10 @@ export default function Navbar() {
 
   const navLinks = useMemo(
     () => [
-      { label: t('navbar.links.home'), href: '/#inicio' },
-      { label: t('navbar.links.about'), href: '/#nosotros' },
-      { label: t('navbar.links.areas'), href: '/#areas' },
-      { label: t('navbar.links.contact'), href: '/#contacto' },
+      { label: t('navbar.links.home'), href: '/#inicio', num: '01' },
+      { label: t('navbar.links.about'), href: '/#nosotros', num: '02' },
+      { label: t('navbar.links.areas'), href: '/#areas', num: '03' },
+      { label: t('navbar.links.contact'), href: '/#contacto', num: '04' },
     ],
     [],
   )
@@ -37,25 +37,25 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-40 w-full transition-all duration-200',
+        'sticky top-0 z-50 w-full transition-all duration-300',
         'border-b border-[#DDD7CC] bg-[#FCFBF8]',
-        scrolled ? 'shadow-[0_4px_24px_rgba(16,29,50,0.06)]' : '',
+        scrolled ? 'shadow-[0_4px_30px_rgba(16,29,50,0.07)]' : '',
       )}
     >
-      <div className="mx-auto flex h-[88px] max-w-[1240px] items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10">
-        {/* Brand Logo (+20%) & Name */}
+      <div className="mx-auto flex h-[90px] max-w-[1320px] items-center justify-between px-6 sm:px-8 lg:px-12">
+        {/* Brand Logo & Editorial Signature */}
         <Link
           href="/"
           className="group flex items-center gap-4 focus-visible:outline-none"
           aria-label="Romio & Asociados — Inicio"
         >
-          <span className="relative h-[58px] w-[58px] shrink-0 overflow-hidden border border-[#DDD7CC] bg-[#FCFBF8] shadow-sm">
+          <span className="relative h-[56px] w-[56px] shrink-0 border border-[#DDD7CC] bg-[#FCFBF8] p-1 shadow-sm transition-transform duration-300 group-hover:border-[#9C7737]">
             <Image
               src="/logo/romio-color.jpg"
               alt="Romio & Asociados"
               fill
               className="object-contain p-1"
-              sizes="58px"
+              sizes="56px"
               priority
             />
           </span>
@@ -63,13 +63,13 @@ export default function Navbar() {
             <span className="font-display text-[23px] font-semibold tracking-[0.02em] text-[#101D32] transition-colors group-hover:text-[#9C7737]">
               Romio &amp; Asociados
             </span>
-            <span className="font-sans text-[12px] font-bold uppercase tracking-[0.15em] text-[#424956]">
+            <span className="font-sans text-[11.5px] font-bold uppercase tracking-[0.18em] text-[#4E5664]">
               Estudio Jurídico · Mar del Plata
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Editorial Navigation */}
         <nav className="hidden items-center gap-10 xl:gap-12 lg:flex" aria-label="Navegación principal">
           {navLinks.map((link) => {
             const isActive = pathname === '/' && link.href.startsWith('/#')
@@ -78,12 +78,14 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'relative font-sans text-[15.5px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors duration-200 hover:text-[#9C7737]',
-                  'py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#9C7737] after:transition-all after:duration-200 hover:after:w-full',
+                  'group flex items-baseline gap-2 font-sans text-[15px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors duration-200 hover:text-[#9C7737]',
                   isActive && 'text-[#101D32]',
                 )}
               >
-                {link.label}
+                <span className="font-display text-[11px] font-normal text-[#9C7737] group-hover:text-[#101D32] transition-colors">
+                  {link.num}
+                </span>
+                <span>{link.label}</span>
               </Link>
             )
           })}
@@ -95,7 +97,7 @@ export default function Navbar() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary min-h-[50px] px-8 text-[15px]"
+            className="btn-primary min-h-[48px] px-7 text-[14.5px]"
           >
             Solicitar consulta
           </a>
@@ -142,9 +144,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="font-sans text-[17px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors hover:text-[#9C7737]"
+                  className="flex items-baseline gap-3 font-sans text-[17px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors hover:text-[#9C7737]"
                 >
-                  {link.label}
+                  <span className="font-display text-[12px] text-[#9C7737]">{link.num}</span>
+                  <span>{link.label}</span>
                 </Link>
               ))}
               <div className="border-t border-[#DDD7CC] pt-5 font-sans text-sm text-[#424956]">
