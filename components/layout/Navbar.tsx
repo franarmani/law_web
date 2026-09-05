@@ -42,35 +42,35 @@ export default function Navbar() {
         scrolled ? 'shadow-[0_4px_24px_rgba(16,29,50,0.06)]' : '',
       )}
     >
-      <div className="mx-auto flex h-[86px] max-w-[1240px] items-center justify-between px-6 sm:px-10 lg:px-12 xl:px-14">
-        {/* Brand Logo & Name (+20% scaled) */}
+      <div className="mx-auto flex h-[88px] max-w-[1240px] items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10">
+        {/* Brand Logo (+20%) & Name */}
         <Link
           href="/"
           className="group flex items-center gap-4 focus-visible:outline-none"
           aria-label="Romio & Asociados — Inicio"
         >
-          <span className="relative h-[54px] w-[54px] shrink-0 overflow-hidden border border-[#DDD7CC] bg-[#FCFBF8] shadow-sm">
+          <span className="relative h-[58px] w-[58px] shrink-0 overflow-hidden border border-[#DDD7CC] bg-[#FCFBF8] shadow-sm">
             <Image
               src="/logo/romio-color.jpg"
               alt="Romio & Asociados"
               fill
               className="object-contain p-1"
-              sizes="54px"
+              sizes="58px"
               priority
             />
           </span>
           <div className="flex flex-col">
-            <span className="font-display text-[22.5px] font-semibold tracking-[0.02em] text-[#101D32] transition-colors group-hover:text-[#9C7737]">
+            <span className="font-display text-[23px] font-semibold tracking-[0.02em] text-[#101D32] transition-colors group-hover:text-[#9C7737]">
               Romio &amp; Asociados
             </span>
-            <span className="font-sans text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#4A5260]">
+            <span className="font-sans text-[12px] font-bold uppercase tracking-[0.15em] text-[#424956]">
               Estudio Jurídico · Mar del Plata
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation (larger font & spacing) */}
-        <nav className="hidden items-center gap-12 lg:flex" aria-label="Navegación principal">
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-10 xl:gap-12 lg:flex" aria-label="Navegación principal">
           {navLinks.map((link) => {
             const isActive = pathname === '/' && link.href.startsWith('/#')
             return (
@@ -78,7 +78,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'relative font-sans text-[15px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors duration-200 hover:text-[#9C7737]',
+                  'relative font-sans text-[15.5px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors duration-200 hover:text-[#9C7737]',
                   'py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#9C7737] after:transition-all after:duration-200 hover:after:w-full',
                   isActive && 'text-[#101D32]',
                 )}
@@ -95,7 +95,7 @@ export default function Navbar() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary min-h-[48px] px-7 text-[14.5px]"
+            className="btn-primary min-h-[50px] px-8 text-[15px]"
           >
             Solicitar consulta
           </a>
@@ -147,7 +147,7 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div className="border-t border-[#DDD7CC] pt-5 font-sans text-sm text-[#4A5260]">
+              <div className="border-t border-[#DDD7CC] pt-5 font-sans text-sm text-[#424956]">
                 <p className="font-bold text-[#101D32]">Atención directa:</p>
                 <p className="mt-1">{CONTACT_PHONES[0].display} · Lunes a Viernes de 9:00 a 17:00 hs</p>
               </div>

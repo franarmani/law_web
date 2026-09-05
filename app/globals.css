@@ -11,17 +11,17 @@
   --color-gold-bright: #B8934C;
   --color-gold-hover: #866327;
   --color-gold-soft: #EFE6D5;
-  --color-text-gray: #4A5260;
-  --color-text-muted: #555E6D;
+  --color-text-gray: #424956;
+  --color-text-muted: #4E5664;
   --color-border-warm: #DDD7CC;
-  --color-border-navy: rgba(255, 255, 255, 0.14);
+  --color-border-navy: rgba(255, 255, 255, 0.2);
 
   /* Legacy aliases */
   --color-white: #FCFBF8;
   --color-ink: #1A1F28;
   --color-champagne: #9C7737;
   --color-gold-text: #9C7737;
-  --color-muted: #4A5260;
+  --color-muted: #424956;
   --color-border: #DDD7CC;
 
   /* Font families */
@@ -58,12 +58,12 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-/* Tipografía Editorial Refinada */
+/* Tipografía Editorial */
 @layer base {
   h1, .text-h1 {
     font-family: var(--font-serif), Georgia, serif;
     font-weight: 600;
-    font-size: clamp(2.6rem, 5vw, 4.5rem); /* 42px a 72px */
+    font-size: clamp(2.75rem, 5.2vw, 4.6rem); /* 44px a 74px */
     line-height: 1.12;
     letter-spacing: -0.015em;
     color: #101D32;
@@ -72,7 +72,7 @@ body {
   h2, .text-h2 {
     font-family: var(--font-serif), Georgia, serif;
     font-weight: 600;
-    font-size: clamp(2.1rem, 3.5vw, 3.15rem); /* 34px a 50px */
+    font-size: clamp(2.2rem, 3.6vw, 3.25rem); /* 35px a 52px */
     line-height: 1.18;
     letter-spacing: -0.01em;
     color: #101D32;
@@ -81,7 +81,7 @@ body {
   h3, .text-h3 {
     font-family: var(--font-serif), Georgia, serif;
     font-weight: 600;
-    font-size: clamp(1.45rem, 2vw, 1.75rem); /* 23px a 28px */
+    font-size: clamp(1.45rem, 2vw, 1.8rem); /* 23px a 29px */
     line-height: 1.28;
     color: #101D32;
   }
@@ -91,7 +91,7 @@ body {
     font-weight: 400;
     font-size: 17px;
     line-height: 1.75;
-    color: #4A5260;
+    color: #424956;
   }
 }
 
@@ -107,19 +107,19 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #9C7737;
 }
 
 .eyebrow.on-navy {
-  color: #B8934C;
+  color: #C5A059;
 }
 
-/* Botones Editoriales con Escala Incrementada */
+/* Botones Editoriales */
 .btn-primary {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 15px;
+  font-size: 15.5px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -158,7 +158,7 @@ body {
 
 .btn-secondary {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 15px;
+  font-size: 15.5px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -182,7 +182,7 @@ body {
 
 .btn-secondary.on-navy {
   color: #FCFBF8;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
 .btn-secondary.on-navy:hover {
@@ -230,7 +230,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #4A5260;
+  color: #424956;
   text-decoration: none;
   padding-bottom: 4px;
   border-bottom: 1.5px solid #DDD7CC;

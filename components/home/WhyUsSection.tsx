@@ -5,8 +5,8 @@ export default function WhyUsSection() {
   const { eyebrow, title, reasons } = getDictionary().home.whyUs
 
   return (
-    <section className="w-full bg-[#101D32] py-24 lg:py-30 text-white" aria-label="Por qué elegirnos">
-      <div className="mx-auto max-w-[1240px] px-6 sm:px-10 lg:px-12 xl:px-14">
+    <section className="w-full bg-[#101D32] py-24 lg:py-28 text-white" aria-label="Por qué elegirnos">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16 xl:gap-20">
           
           {/* Left Column: Title, Intro & Institutional Quote */}
@@ -22,7 +22,7 @@ export default function WhyUsSection() {
               {title}
             </h2>
 
-            <p className="mt-6 font-sans text-[17.5px] sm:text-[18.5px] leading-[1.75] text-[#CCD6E5]">
+            <p className="mt-6 font-sans text-[17.5px] sm:text-[18.5px] leading-[1.75] text-[#D4DEEB]">
               Un estudio pensado para brindar respuestas directas, sin demoras innecesarias y con total claridad en cada paso procesal.
             </p>
 
@@ -41,13 +41,13 @@ export default function WhyUsSection() {
                 className="flex flex-col justify-between bg-[#101D32] p-8 sm:p-10 transition-colors duration-200 hover:bg-[#1D304D]"
               >
                 <div>
-                  <span className="font-display text-[26px] font-semibold text-[#B8934C]">
+                  <span className="font-display text-[28px] font-semibold text-[#B8934C]">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h3 className="mt-4 text-[20px] sm:text-[21px] font-semibold text-white">
                     {reason.title}
                   </h3>
-                  <p className="mt-3 font-sans text-[15.5px] sm:text-[16px] leading-[1.7] text-[#CCD6E5]">
+                  <p className="mt-3 font-sans text-[16px] leading-[1.7] text-[#D4DEEB]">
                     {reason.description}
                   </p>
                 </div>

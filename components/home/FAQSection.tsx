@@ -12,9 +12,9 @@ export default function FAQSection() {
   const reduced = useReducedMotion()
 
   return (
-    <section className="w-full bg-[#F5F1E9] py-24 lg:py-30" aria-label="Preguntas frecuentes">
-      <div className="mx-auto max-w-[1240px] px-6 sm:px-10 lg:px-12 xl:px-14">
-        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 xl:gap-20">
+    <section className="w-full bg-[#F5F1E9] py-24 lg:py-28" aria-label="Preguntas frecuentes">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 md:px-8 lg:px-10">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16 xl:gap-20">
           
           {/* Left Column: Heading & WhatsApp Helper Box */}
           <div>
@@ -29,29 +29,29 @@ export default function FAQSection() {
               {title}
             </h2>
 
-            <p className="mt-6 font-sans text-[17px] sm:text-[18px] leading-[1.75] text-[#4A5260]">
+            <p className="mt-6 font-sans text-[17px] sm:text-[18px] leading-[1.75] text-[#424956]">
               Respuestas claras y directas a las inquietudes más habituales antes de iniciar una consulta o proceso legal.
             </p>
 
             <div className="mt-10 border border-[#DDD7CC] bg-[#FCFBF8] p-9 shadow-sm">
-              <p className="font-display text-[20px] sm:text-[21px] font-semibold text-[#101D32]">
-                ¿Tenés una consulta específica?
+              <p className="font-display text-[21px] font-semibold text-[#101D32]">
+                ¿Aún tenés alguna consulta?
               </p>
-              <p className="mt-2.5 font-sans text-[15.5px] leading-[1.65] text-[#4A5260]">
-                Escribinos por WhatsApp y analizamos tu caso de forma directa y confidencial.
+              <p className="mt-2.5 font-sans text-[16px] leading-[1.65] text-[#424956]">
+                Escribinos por WhatsApp y analizamos tu caso de forma directa y confidencial con el equipo profesional.
               </p>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary mt-7 w-full text-center min-h-[50px] text-[15px]"
+                className="btn-primary mt-7 w-full text-center min-h-[52px] text-[15.5px]"
               >
                 Hacer consulta directa
               </a>
             </div>
           </div>
 
-          {/* Right Column: Wide Accordion List (68px min row height) */}
+          {/* Right Column: Wide Accordion List */}
           <div className="flex flex-col border border-[#DDD7CC] bg-[#FCFBF8] shadow-sm">
             {items.map((item, i) => {
               const isOpen = openIndex === i
@@ -59,11 +59,11 @@ export default function FAQSection() {
                 <div key={item.q} className="border-b border-[#DDD7CC] last:border-b-0">
                   <button
                     type="button"
-                    className="flex min-h-[72px] w-full items-center justify-between gap-6 px-6 py-5 text-left transition-colors duration-150 hover:bg-[#F5F1E9]/60 focus-visible:outline-none sm:px-9"
+                    className="flex min-h-[66px] w-full items-center justify-between gap-6 px-6 py-5 text-left transition-colors duration-150 hover:bg-[#F5F1E9]/60 focus-visible:outline-none sm:px-9"
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     aria-expanded={isOpen}
                   >
-                    <span className="font-display text-[18.5px] sm:text-[19.5px] font-semibold text-[#101D32]">
+                    <span className="font-display text-[19px] sm:text-[20px] font-semibold text-[#101D32]">
                       {item.q}
                     </span>
                     <span className="font-display shrink-0 text-2xl font-semibold text-[#9C7737]">
@@ -81,7 +81,7 @@ export default function FAQSection() {
                         className="overflow-hidden"
                       >
                         <div className="border-t border-[#DDD7CC]/50 px-6 pb-7 pt-5 sm:px-9">
-                          <p className="font-sans text-[16.5px] sm:text-[17px] leading-[1.75] text-[#4A5260]">
+                          <p className="font-sans text-[16.5px] sm:text-[17px] leading-[1.75] text-[#424956]">
                             {item.a}
                           </p>
                         </div>

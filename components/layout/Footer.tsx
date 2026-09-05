@@ -8,7 +8,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-[#101D32] py-20 lg:py-24 text-white border-t border-white/10" aria-label="Pie de página">
-      <div className="mx-auto max-w-[1240px] px-6 sm:px-10 lg:px-12 xl:px-14">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 md:px-8 lg:px-10">
         
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 gap-12 pb-16 border-b border-white/15 lg:grid-cols-12 lg:gap-14">
@@ -24,7 +24,7 @@ export default function Footer() {
               </p>
             </div>
 
-            <p className="mt-6 max-w-[380px] font-sans text-[16px] leading-[1.8] text-[#CCD6E5]">
+            <p className="mt-6 max-w-[380px] font-sans text-[16px] leading-[1.8] text-[#D4DEEB]">
               {t('footer.studioBlurbLine1')} {t('footer.studioBlurbLine2')}
             </p>
 
@@ -47,7 +47,7 @@ export default function Footer() {
                 <li key={area.slug}>
                   <Link
                     href={`/areas/${area.slug}`}
-                    className="font-sans text-[16px] text-white/80 transition-colors hover:text-[#B8934C]"
+                    className="font-sans text-[16px] text-[#D4DEEB] transition-colors hover:text-[#B8934C]"
                   >
                     {area.name}
                   </Link>
@@ -61,7 +61,7 @@ export default function Footer() {
             <p className="font-sans text-[13px] font-bold uppercase tracking-[0.18em] text-[#B8934C]">
               {t('footer.contactHeading')}
             </p>
-            <div className="mt-6 flex flex-col gap-4 font-sans text-[15.5px] text-white/80">
+            <div className="mt-6 flex flex-col gap-4 font-sans text-[15.5px] text-[#D4DEEB]">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
@@ -76,10 +76,10 @@ export default function Footer() {
               >
                 {CONTACT_EMAIL}
               </a>
-              <p className="text-white/70 leading-snug">
+              <p className="text-[#CCD6E5] leading-snug">
                 Rivadavia 3188, 1° Piso, Of. 15<br />Mar del Plata, Argentina
               </p>
-              <p className="text-white/70">
+              <p className="text-[#CCD6E5]">
                 Atención: L–V de 9:00 a 17:00 hs
               </p>
             </div>
@@ -88,7 +88,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col gap-4 pt-8 font-sans text-[13px] uppercase tracking-[0.08em] text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 pt-8 font-sans text-[13px] uppercase tracking-[0.08em] text-[#D4DEEB]/75 sm:flex-row sm:items-center sm:justify-between">
           <p>{t('footer.copyright', { year })}</p>
           <div className="flex gap-8">
             <Link href="/privacidad" className="transition-colors hover:text-[#B8934C]">
