@@ -1,25 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  /* Romio & Asociados — Exclusive Minimal */
-  --color-white: #ffffff;
-  --color-ivory: #f7f4ee;
-  --color-navy: #0d1b32;
-  --color-ink: #171a1f;
-  --color-champagne: #b99552;
-  --color-gold-text: #92713a;
-  --color-muted: #7d8699;
-  --color-border: #e5ded2;
+  /* Romio & Asociados — Estudio Jurídico Editorial Contemporáneo */
+  --color-warm-white: #FCFBF8;
+  --color-ivory: #F5F1E9;
+  --color-navy: #101D32;
+  --color-navy-secondary: #1D304D;
+  --color-graphite: #20242A;
+  --color-gold-dark: #A27D3F;
+  --color-gold-hover: #8C6B34;
+  --color-gold-soft: #EFE6D5;
+  --color-text-gray: #5F6670;
+  --color-border-warm: #DDD7CC;
+  --color-border-navy: rgba(255, 255, 255, 0.12);
+
+  /* Legacy aliases for compatibility */
+  --color-white: #FCFBF8;
+  --color-ink: #20242A;
+  --color-champagne: #A27D3F;
+  --color-gold-text: #A27D3F;
+  --color-muted: #5F6670;
+  --color-border: #DDD7CC;
 
   /* Font families */
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-jost);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-serif), Georgia, serif;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #ffffff;
-  color: #171a1f;
+  background-color: #FCFBF8;
+  color: #20242A;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -30,171 +41,213 @@ html {
 
 body {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-weight: 300;
-  color: #171a1f;
-  background-color: #ffffff;
+  font-weight: 400;
+  color: #20242A;
+  background-color: #FCFBF8;
   -webkit-font-smoothing: antialiased;
 }
 
 .font-display {
-  font-family: var(--font-jost), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
 }
 
 .font-sans {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-/* Tipografía Exclusive Minimal — trazo liviano, mucho aire.
-   En @layer base para que las utilidades de Tailwind (text-white, etc.)
-   siempre puedan pisar estos colores por defecto, sin pelear por especificidad. */
+/* Tipografía Editorial — Playfair Display + Inter */
 @layer base {
   h1, .text-h1 {
-    font-family: var(--font-jost), system-ui, sans-serif;
-    font-weight: 200;
-    font-size: clamp(2.25rem, 4.6vw, 4.5rem); /* 36px a 72px */
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    color: #0d1b32;
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.5rem, 4.8vw, 4.375rem); /* 40px a 70px */
+    line-height: 1.14;
+    letter-spacing: -0.015em;
+    color: #101D32;
   }
 
   h2, .text-h2 {
-    font-family: var(--font-jost), system-ui, sans-serif;
-    font-weight: 200;
-    font-size: clamp(1.75rem, 2.6vw, 2.625rem); /* 28px a 42px */
-    line-height: 1.15;
-    color: #0d1b32;
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 3.2vw, 3rem); /* 32px a 48px */
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #101D32;
   }
 
   h3, .text-h3 {
-    font-family: var(--font-jost), system-ui, sans-serif;
-    font-weight: 300;
-    font-size: clamp(1.125rem, 1.3vw, 1.3125rem); /* 18px a 21px */
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.35rem, 1.8vw, 1.65rem); /* 22px a 26px */
     line-height: 1.3;
-    color: #0d1b32;
+    color: #101D32;
   }
 
   p, .text-body {
     font-family: var(--font-inter), system-ui, sans-serif;
-    font-weight: 300;
-    font-size: 15px;
-    line-height: 1.75;
-    color: #7d8699;
+    font-weight: 400;
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: #5F6670;
   }
 }
 
-/* Acento en negrita dentro de un titular liviano */
+/* Acento dentro de un titular */
 .accent {
+  font-style: normal;
   font-weight: 600;
-  color: #b99552;
+  color: #A27D3F;
 }
 
-/* Eyebrow — etiqueta pequeña en mayúsculas, muy espaciada */
+/* Eyebrow — etiqueta institucional en mayúsculas */
 .eyebrow {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #b99552;
-}
-
-/* Enlaces de texto — sin chrome de botón, la acción principal en casi todo el sitio */
-.link-primary {
-  font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #0d1b32;
-  text-decoration: none;
-  padding-bottom: 4px;
-  border-bottom: 1px solid #0d1b32;
-  transition: opacity 0.2s ease-in-out;
-}
-.link-primary:hover {
-  opacity: 0.6;
+  color: #A27D3F;
 }
 
-.link-secondary {
-  font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #7d8699;
-  text-decoration: none;
-  padding-bottom: 4px;
-  border-bottom: 1px solid #e5ded2;
-  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-}
-.link-secondary:hover {
-  color: #0d1b32;
-  border-bottom-color: #0d1b32;
+.eyebrow.on-navy {
+  color: #A27D3F;
 }
 
-/* Variante clara del link-primary, para usar sobre fondo azul marino */
-.link-primary.on-navy {
-  color: #b99552;
-  border-bottom-color: #b99552;
+.eyebrow.muted {
+  color: #5F6670;
 }
 
-/* Único botón sólido del sitio — reservado para el envío del formulario de contacto */
+/* Botones Editoriales */
 .btn-primary {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 14.5px;
+  font-weight: 600;
   letter-spacing: 0.04em;
+  text-transform: uppercase;
   min-height: 52px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1.75rem;
-  background-color: #0d1b32;
-  color: #ffffff;
-  border: 1px solid #0d1b32;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  padding: 0 2rem;
+  background-color: #101D32;
+  color: #FCFBF8;
+  border: 1px solid #101D32;
+  border-radius: 0;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-}
-.btn-primary:hover {
-  background-color: #b99552;
-  border-color: #b99552;
-  color: #0d1b32;
+  box-shadow: 0 1px 2px rgba(16, 29, 50, 0.05);
 }
 
-/* Placeholder de imagen — usado por components/ui/ImageSlot.tsx */
-.img-slot {
-  background-color: #ffffff;
-  border: 1px solid #e5ded2;
-  display: flex;
+.btn-primary:hover {
+  background-color: #A27D3F;
+  border-color: #A27D3F;
+  color: #FCFBF8;
+  transform: translateY(-1px);
+}
+
+.btn-primary.on-navy {
+  background-color: #A27D3F;
+  border-color: #A27D3F;
+  color: #FCFBF8;
+}
+
+.btn-primary.on-navy:hover {
+  background-color: #FCFBF8;
+  border-color: #FCFBF8;
+  color: #101D32;
+}
+
+.btn-secondary {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  min-height: 52px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-  color: #7d8699;
-}
-.img-slot svg {
-  width: 40px;
-  height: 40px;
-  opacity: 0.35;
-}
-.img-slot.img-slot-sm svg {
-  width: 20px;
-  height: 20px;
-}
-.img-slot .img-slot-label {
-  font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 11px;
-  font-weight: 300;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.55;
-  text-align: center;
-  padding: 0 20px;
+  padding: 0 2rem;
+  background-color: transparent;
+  color: #101D32;
+  border: 1px solid #101D32;
+  border-radius: 0;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
 
-/* Variante oscura del placeholder de imagen, para usar sobre fondo azul marino */
-.img-slot.on-navy {
-  background-color: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.35);
+.btn-secondary:hover {
+  background-color: #101D32;
+  color: #FCFBF8;
+}
+
+.btn-secondary.on-navy {
+  color: #FCFBF8;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-secondary.on-navy:hover {
+  background-color: #FCFBF8;
+  border-color: #FCFBF8;
+  color: #101D32;
+}
+
+/* Enlaces editoriales */
+.link-primary {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #101D32;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 3px;
+  border-bottom: 1.5px solid #A27D3F;
+  transition: all 0.2s ease-in-out;
+}
+
+.link-primary:hover {
+  color: #A27D3F;
+  border-bottom-color: #101D32;
+  transform: translateX(2px);
+}
+
+.link-primary.on-navy {
+  color: #FCFBF8;
+  border-bottom-color: #A27D3F;
+}
+
+.link-primary.on-navy:hover {
+  color: #A27D3F;
+  border-bottom-color: #FCFBF8;
+}
+
+.link-secondary {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5F6670;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #DDD7CC;
+  transition: all 0.2s ease-in-out;
+}
+
+.link-secondary:hover {
+  color: #101D32;
+  border-bottom-color: #A27D3F;
+}
+
+/* Microinteracciones sutiles */
+.editorial-hover {
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-hover:hover {
+  border-color: #A27D3F;
 }

@@ -20,13 +20,13 @@ export default function FloatingWhatsApp() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="group fixed bottom-6 right-6 z-50 flex items-center gap-3"
-          initial={reduced ? false : { opacity: 0, y: 12 }}
+          className="group fixed bottom-7 right-7 z-50 flex items-center gap-3.5"
+          initial={reduced ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={reduced ? undefined : { opacity: 0, y: 12 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
+          exit={reduced ? undefined : { opacity: 0, y: 14 }}
+          transition={{ duration: 0.22, ease: 'easeOut' }}
         >
-          <span className="pointer-events-none hidden whitespace-nowrap border border-border bg-white px-4 py-2 font-sans text-[11px] font-light uppercase tracking-[0.1em] text-navy opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100 sm:block">
+          <span className="pointer-events-none hidden whitespace-nowrap border border-[#DDD7CC] bg-[#FCFBF8] px-4 py-2.5 font-sans text-[12px] font-bold uppercase tracking-[0.08em] text-[#101D32] opacity-0 shadow-md transition-opacity duration-200 group-hover:opacity-100 sm:block">
             {t('common.cta.freeConsultSticky')}
           </span>
           <a
@@ -34,7 +34,7 @@ export default function FloatingWhatsApp() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t('common.cta.consultWhatsAppFloatingAria')}
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-navy text-white shadow-md transition-colors hover:bg-champagne hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne"
+            className="flex h-14 w-14 items-center justify-center rounded-full border border-[#DDD7CC] bg-[#101D32] text-[#FCFBF8] shadow-lg transition-all duration-200 hover:bg-[#A27D3F] hover:border-[#A27D3F] hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A27D3F]"
           >
             <svg
               width="24"

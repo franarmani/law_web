@@ -4,15 +4,25 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { WHATSAPP_URL } from '@/lib/areas'
+import { CONTACT_PHONES, WHATSAPP_URL } from '@/lib/areas'
 import { cn } from '@/lib/cn'
 import { t } from '@/i18n'
 
 export default function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navLinks = useMemo(
     () => [
@@ -25,28 +35,42 @@ export default function Navbar() {
   )
 
   return (
-    <header className="w-full bg-ivory">
-      <div className="mx-auto flex h-[100px] max-w-[1180px] items-center justify-between px-6 sm:px-8 lg:px-12">
+    <header
+      className={cn(
+        'sticky top-0 z-40 w-full transition-all duration-200',
+        'border-b border-[#DDD7CC] bg-[#FCFBF8]',
+        scrolled ? 'shadow-[0_4px_20px_rgba(16,29,50,0.06)]' : '',
+      )}
+    >
+      <div className="mx-auto flex h-[84px] max-w-[1280px] items-center justify-between px-6 sm:px-10 lg:px-14 xl:px-16">
+        {/* Brand Logo & Name */}
         <Link
           href="/"
-          className="flex items-center gap-3 focus-visible:outline-none"
+          className="group flex items-center gap-3.5 focus-visible:outline-none"
+          aria-label="Romio & Asociados — Inicio"
         >
-          <span className="relative h-11 w-11 shrink-0">
+          <span className="relative h-[48px] w-[48px] shrink-0 overflow-hidden border border-[#DDD7CC] bg-[#FCFBF8]">
             <Image
               src="/logo/romio-color.jpg"
               alt="Romio & Asociados"
               fill
-              className="object-contain"
-              sizes="44px"
+              className="object-contain p-1"
+              sizes="48px"
               priority
             />
           </span>
-          <span className="font-display text-[20px] font-light uppercase tracking-[0.08em] text-navy">
-            Romio &amp; Asociados
-          </span>
+          <div className="flex flex-col">
+            <span className="font-display text-[21px] font-semibold tracking-[0.02em] text-[#101D32] transition-colors group-hover:text-[#A27D3F]">
+              Romio &amp; Asociados
+            </span>
+            <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.14em] text-[#5F6670]">
+              Estudio Jurídico · Mar del Plata
+            </span>
+          </div>
         </Link>
 
-        <nav className="hidden items-center gap-14 lg:flex">
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-10 lg:flex" aria-label="Navegación principal">
           {navLinks.map((link) => {
             const isActive = pathname === '/' && link.href.startsWith('/#')
             return (
@@ -54,8 +78,9 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'font-sans text-[13px] font-light uppercase tracking-[0.12em] text-navy transition-opacity hover:opacity-100',
-                  isActive ? 'opacity-100' : 'opacity-65',
+                  'relative font-sans text-[14.5px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors duration-200 hover:text-[#A27D3F]',
+                  'py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#A27D3F] after:transition-all after:duration-200 hover:after:w-full',
+                  isActive && 'text-[#101D32]',
                 )}
               >
                 {link.label}
@@ -64,29 +89,32 @@ export default function Navbar() {
           })}
         </nav>
 
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link-primary hidden lg:inline-block"
-        >
-          Consulta
-        </a>
+        {/* Desktop CTA Button */}
+        <div className="hidden items-center gap-6 lg:flex">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            Solicitar consulta
+          </a>
+        </div>
 
         {/* Mobile Hamburger Toggle Button */}
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center border border-border text-navy transition-colors hover:bg-white lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center border border-[#DDD7CC] bg-[#FCFBF8] text-[#101D32] transition-colors hover:border-[#101D32] hover:bg-[#F5F1E9] lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? t('common.aria.closeMenu') : t('common.aria.openMenu')}
           aria-expanded={open}
         >
           <svg
-            className="h-5 w-5"
+            className="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            strokeWidth="1.2"
+            strokeWidth="1.6"
             aria-hidden="true"
           >
             {open ? (
@@ -105,8 +133,8 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="border-t border-border bg-ivory px-6 pb-6 pt-4 lg:hidden"
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="border-t border-[#DDD7CC] bg-[#FCFBF8] px-6 pb-8 pt-5 lg:hidden"
           >
             <div className="flex flex-col space-y-5">
               {navLinks.map((link) => (
@@ -114,19 +142,23 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="font-sans text-sm font-light uppercase tracking-[0.1em] text-navy"
+                  className="font-sans text-[16px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors hover:text-[#A27D3F]"
                 >
                   {link.label}
                 </Link>
               ))}
+              <div className="border-t border-[#DDD7CC] pt-4 font-sans text-sm text-[#5F6670]">
+                <p className="font-semibold text-[#101D32]">Atención directa:</p>
+                <p className="mt-1">{CONTACT_PHONES[0].display} · Lunes a Viernes de 9:00 a 17:00 hs</p>
+              </div>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="link-primary w-fit"
+                className="btn-primary w-full text-center"
               >
-                Consulta
+                Solicitar consulta
               </a>
             </div>
           </motion.div>

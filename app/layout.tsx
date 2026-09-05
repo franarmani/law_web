@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Jost } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import FloatingWhatsApp from '@/components/motion/FloatingWhatsApp'
@@ -11,15 +11,16 @@ const inter = Inter({
   variable: '--font-inter',
   display: 'swap',
   adjustFontFallback: true,
-  weight: ['300', '400', '500'],
+  weight: ['400', '500', '600', '700'],
 })
 
-const jost = Jost({
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-jost',
+  variable: '--font-serif',
   display: 'swap',
   adjustFontFallback: true,
-  weight: ['200', '300', '400', '500', '600'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
 })
 
 const { site } = getDictionary().metadata
@@ -99,7 +100,7 @@ export default function RootLayout({
   return (
     <html
       lang={site.htmlLang}
-      className={`${inter.variable} ${jost.variable}`}
+      className={`${inter.variable} ${playfair.variable}`}
     >
       <head>
         <script
@@ -107,7 +108,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans text-ink bg-white antialiased">
+      <body className="font-sans text-graphite bg-warm-white antialiased selection:bg-gold-dark selection:text-white">
         <Navbar />
         <main>{children}</main>
         <Footer />
@@ -116,4 +117,3 @@ export default function RootLayout({
     </html>
   )
 }
-
