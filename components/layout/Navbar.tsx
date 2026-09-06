@@ -42,35 +42,35 @@ export default function Navbar() {
         scrolled ? 'shadow-[0_4px_30px_rgba(16,29,50,0.07)]' : '',
       )}
     >
-      <div className="mx-auto flex h-[78px] max-w-[1240px] items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10">
+      <div className="mx-auto flex h-[62px] sm:h-[68px] lg:h-[72px] max-w-[1240px] items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Brand Logo & Editorial Signature */}
         <Link
           href="/"
-          className="group flex items-center gap-3.5 focus-visible:outline-none"
+          className="group flex items-center gap-2.5 sm:gap-3.5 focus-visible:outline-none"
           aria-label="Romio & Asociados — Inicio"
         >
-          <span className="relative h-[54px] w-[54px] shrink-0 border border-[#DDD7CC] bg-[#FCFBF8] p-1 shadow-sm transition-transform duration-300 group-hover:border-[#9A7538]">
+          <span className="relative h-[40px] w-[40px] sm:h-[44px] sm:w-[44px] lg:h-[48px] lg:w-[48px] shrink-0 border border-[#DDD7CC] bg-[#FCFBF8] p-0.5 shadow-xs transition-transform duration-300 group-hover:border-[#9A7538]">
             <Image
               src="/logo/romio-color.jpg"
               alt="Romio & Asociados"
               fill
-              className="object-contain p-1"
-              sizes="54px"
+              className="object-contain p-0.5"
+              sizes="(max-width: 640px) 40px, 48px"
               priority
             />
           </span>
           <div className="flex flex-col">
-            <span className="font-display text-[22px] font-semibold tracking-[0.02em] text-[#101D32] transition-colors group-hover:text-[#9A7538]">
+            <span className="font-display text-[17px] sm:text-[19px] lg:text-[21px] font-semibold tracking-[0.01em] text-[#101D32] transition-colors group-hover:text-[#9A7538] leading-tight">
               Romio &amp; Asociados
             </span>
-            <span className="font-sans text-[11.5px] font-bold uppercase tracking-[0.16em] text-[#59616C]">
+            <span className="font-sans text-[9.5px] sm:text-[10.5px] lg:text-[11px] font-bold uppercase tracking-[0.14em] text-[#59616C] leading-tight mt-0.5">
               Estudio Jurídico · Mar del Plata
             </span>
           </div>
         </Link>
 
         {/* Desktop Editorial Navigation */}
-        <nav className="hidden items-center gap-8 xl:gap-11 lg:flex" aria-label="Navegación principal">
+        <nav className="hidden items-center gap-7 xl:gap-9 lg:flex" aria-label="Navegación principal">
           {navLinks.map((link) => {
             const isActive = pathname === '/' && link.href.startsWith('/#')
             return (
@@ -78,11 +78,11 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'group flex items-baseline gap-2 font-sans text-[14.5px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors duration-200 hover:text-[#9A7538]',
+                  'group flex items-baseline gap-1.5 font-sans text-[13.5px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors duration-200 hover:text-[#9A7538]',
                   isActive && 'text-[#101D32]',
                 )}
               >
-                <span className="font-display text-[11.5px] font-normal text-[#9A7538] group-hover:text-[#101D32] transition-colors">
+                <span className="font-display text-[11px] font-normal text-[#9A7538] group-hover:text-[#101D32] transition-colors">
                   {link.num}
                 </span>
                 <span>{link.label}</span>
@@ -97,7 +97,7 @@ export default function Navbar() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary min-h-[46px] h-[46px] px-6 text-[14px]"
+            className="btn-primary min-h-[42px] h-[42px] px-5 text-[13px]"
           >
             Solicitar consulta
           </a>
@@ -106,13 +106,13 @@ export default function Navbar() {
         {/* Mobile Hamburger Toggle Button */}
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center border border-[#DDD7CC] bg-[#FCFBF8] text-[#101D32] transition-colors hover:border-[#101D32] hover:bg-[#F5F1E9] lg:hidden"
+          className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center border border-[#DDD7CC] bg-[#FCFBF8] text-[#101D32] transition-colors hover:border-[#101D32] hover:bg-[#F5F1E9] lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? t('common.aria.closeMenu') : t('common.aria.openMenu')}
           aria-expanded={open}
         >
           <svg
-            className="h-6 w-6"
+            className="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
