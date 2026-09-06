@@ -136,30 +136,58 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="border-t border-[#DDD7CC] bg-[#FCFBF8] px-6 pb-8 pt-6 lg:hidden"
+            className="border-b border-[#DDD7CC] bg-[#FCFBF8] shadow-[0_16px_36px_rgba(16,29,50,0.12)] lg:hidden overflow-hidden"
           >
-            <div className="flex flex-col space-y-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="flex items-baseline gap-3 font-sans text-[17px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors hover:text-[#9A7538]"
+            <div className="px-5 pt-2 pb-6 flex flex-col">
+              {/* Navigation Items in Structured Rows */}
+              <nav className="flex flex-col border-t border-[#DDD7CC]/60" aria-label="Navegación móvil">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="group flex items-center justify-between py-3.5 border-b border-[#DDD7CC]/60 transition-colors hover:bg-[#F5F1E9]/60"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <span className="font-display text-[13px] font-semibold text-[#9A7538]">
+                        {link.num}
+                      </span>
+                      <span className="font-display text-[17px] font-semibold text-[#101D32] group-hover:text-[#9A7538] transition-colors">
+                        {link.label}
+                      </span>
+                    </div>
+                    <span className="font-sans text-[15px] text-[#9A7538] transition-transform duration-200 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                ))}
+              </nav>
+
+              {/* Direct Contact Card on Ivory */}
+              <div className="mt-4 border border-[#DDD7CC] bg-[#F5F1E9] p-4">
+                <p className="font-sans text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#9A7538]">
+                  Atención Directa · Estudio
+                </p>
+                <a
+                  href={`https://wa.me/5492233118656`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-display mt-1 block text-[16px] font-semibold text-[#101D32] hover:text-[#9A7538] transition-colors"
                 >
-                  <span className="font-display text-[12px] text-[#9A7538]">{link.num}</span>
-                  <span>{link.label}</span>
-                </Link>
-              ))}
-              <div className="border-t border-[#DDD7CC] pt-5 font-sans text-sm text-[#59616C]">
-                <p className="font-bold text-[#101D32]">Atención directa:</p>
-                <p className="mt-1">{CONTACT_PHONES[0].display} · Lunes a Viernes de 9:00 a 17:00 hs</p>
+                  {CONTACT_PHONES[0].display}
+                </a>
+                <p className="mt-0.5 font-sans text-[12px] text-[#59616C]">
+                  Lunes a Viernes de 9:00 a 17:00 hs · Presencial &amp; Virtual
+                </p>
               </div>
+
+              {/* Primary Consultation Button */}
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="btn-primary w-full text-center"
+                className="btn-primary mt-4 w-full h-[46px] min-h-[46px] text-[13.5px] font-bold tracking-[0.06em]"
               >
                 Solicitar consulta
               </a>
