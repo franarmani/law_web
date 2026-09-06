@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* Romio & Asociados — Estudio Jurídico Editorial Contemporáneo */
+  /* Romio & Asociados — Estudio Jurídico Institucional Sobrio */
   --color-warm-white: #FCFBF8;
   --color-ivory: #F5F1E9;
   --color-navy: #101D32;
   --color-navy-secondary: #1D304D;
-  --color-graphite: #1A1F28;
-  --color-gold-dark: #9C7737;
-  --color-gold-bright: #B8934C;
-  --color-gold-hover: #866327;
+  --color-graphite: #20242A;
+  --color-gold-dark: #9A7538;
+  --color-gold-bright: #9A7538;
+  --color-gold-hover: #84632E;
   --color-gold-soft: #EFE6D5;
-  --color-text-gray: #424956;
-  --color-text-muted: #4E5664;
+  --color-text-gray: #59616C;
+  --color-text-muted: #59616C;
   --color-border-warm: #DDD7CC;
   --color-border-navy: rgba(255, 255, 255, 0.2);
 
   /* Legacy aliases */
   --color-white: #FCFBF8;
-  --color-ink: #1A1F28;
-  --color-champagne: #9C7737;
-  --color-gold-text: #9C7737;
-  --color-muted: #424956;
+  --color-ink: #20242A;
+  --color-champagne: #9A7538;
+  --color-gold-text: #9A7538;
+  --color-muted: #59616C;
   --color-border: #DDD7CC;
 
   /* Font families */
@@ -91,7 +91,7 @@ body {
     font-weight: 400;
     font-size: 17px;
     line-height: 1.75;
-    color: #424956;
+    color: #20242A;
   }
 }
 
@@ -99,7 +99,7 @@ body {
 .accent {
   font-style: italic;
   font-weight: 500;
-  color: #9C7737;
+  color: #9A7538;
 }
 
 /* Eyebrow — etiqueta institucional en mayúsculas */
@@ -109,25 +109,25 @@ body {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #9C7737;
+  color: #9A7538;
 }
 
 .eyebrow.on-navy {
-  color: #C5A059;
+  color: #9A7538;
 }
 
 /* Botones Editoriales */
 .btn-primary {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 15.5px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  min-height: 52px;
+  min-height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2.25rem;
+  padding: 0 2rem;
   background-color: #101D32;
   color: #FCFBF8;
   border: 1px solid #101D32;
@@ -138,15 +138,15 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #9C7737;
-  border-color: #9C7737;
+  background-color: #9A7538;
+  border-color: #9A7538;
   color: #FCFBF8;
   transform: translateY(-1px);
 }
 
 .btn-primary.on-navy {
-  background-color: #B8934C;
-  border-color: #B8934C;
+  background-color: #9A7538;
+  border-color: #9A7538;
   color: #FCFBF8;
 }
 
