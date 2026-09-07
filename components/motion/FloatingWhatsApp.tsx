@@ -20,7 +20,7 @@ export default function FloatingWhatsApp() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="group fixed bottom-7 right-7 z-50 flex items-center gap-3.5"
+          className="group floating-whatsapp-container fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-4 min-[375px]:right-5 sm:bottom-7 sm:right-7 z-40 flex items-center gap-3.5"
           initial={reduced ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           exit={reduced ? undefined : { opacity: 0, y: 14 }}
@@ -34,7 +34,7 @@ export default function FloatingWhatsApp() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t('common.cta.consultWhatsAppFloatingAria')}
-            className="flex h-14 w-14 items-center justify-center rounded-full border border-[#DDD7CC] bg-[#101D32] text-[#FCFBF8] shadow-lg transition-all duration-200 hover:bg-[#A27D3F] hover:border-[#A27D3F] hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A27D3F]"
+            className="flex h-[52px] w-[52px] sm:h-14 sm:w-14 items-center justify-center rounded-full border border-[#DDD7CC] bg-[#101D32] text-[#FCFBF8] shadow-lg transition-all duration-200 hover:bg-[#9A7538] hover:border-[#9A7538] hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A7538]"
           >
             <svg
               width="24"
@@ -52,3 +52,4 @@ export default function FloatingWhatsApp() {
     </AnimatePresence>
   )
 }
+

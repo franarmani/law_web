@@ -8,86 +8,93 @@ export default function AboutSection() {
   const { about } = getDictionary().home
 
   return (
-    <section id="nosotros" className="w-full bg-[#FCFBF8] py-20 lg:py-28" aria-label="Sobre el estudio">
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 md:px-8 lg:px-10">
+    <section id="nosotros" className="w-full bg-[#FCFBF8] py-14 sm:py-20 lg:py-28" aria-label="Sobre el estudio">
+      <div className="mx-auto max-w-[1200px] px-4 min-[375px]:px-5 sm:px-6 md:px-8 lg:px-10">
         
-        {/* Top Eyebrow Bar */}
-        <div className="flex items-center justify-between border-b border-[#DDD7CC] pb-5">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-10 bg-[#9A7538]" aria-hidden="true" />
-            <p className="font-sans text-[12.5px] font-bold uppercase tracking-[0.2em] text-[#9A7538]">
-              {about.eyebrow} · Trayectoria &amp; Compromiso
-            </p>
-          </div>
-          <span className="font-sans text-[12px] font-semibold uppercase tracking-[0.14em] text-[#59616C]">
-            Perfil Institucional
-          </span>
+        {/* Single Header Line (no overlapping labels) */}
+        <div className="flex items-center gap-2.5 sm:gap-3 border-b border-[#DDD7CC] pb-4 sm:pb-5">
+          <span className="h-px w-7 sm:w-9 bg-[#9A7538]" aria-hidden="true" />
+          <p className="font-sans text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.14em] text-[#9A7538]">
+            <span className="sm:hidden">Sobre el estudio</span>
+            <span className="hidden sm:inline">Nosotros · Trayectoria &amp; Compromiso</span>
+          </p>
         </div>
 
-        {/* Two-Column Composition */}
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        {/* Content Flow */}
+        <div className="mt-7 sm:mt-10 grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-12 items-start">
           
-          {/* Left Column: Heading & Quote (6 cols) */}
-          <div className="lg:col-span-6">
-            <h2 className="text-[32px] sm:text-[40px] lg:text-[44px] font-semibold leading-[1.15] text-[#101D32]">
+          {/* Left Column: Heading and Narrative Body */}
+          <div className="lg:col-span-6 flex flex-col">
+            <h2 className="text-[26px] sm:text-[34px] lg:text-[40px] font-semibold leading-[1.18] text-[#101D32]">
               Compromiso ético y rigor técnico en cada expediente.
             </h2>
 
-            <blockquote className="mt-8 border-l-2 border-[#9A7538] bg-[#F5F1E9] p-7 sm:p-8">
-              <p className="font-display text-[20px] sm:text-[22px] font-normal italic leading-[1.5] text-[#101D32]">
+            <p className="mt-4 sm:mt-5 font-sans text-[15.5px] sm:text-[16.5px] leading-[1.75] text-[#59616C]">
+              {about.body}
+            </p>
+
+            {/* Compact Institutional Quote */}
+            <blockquote className="mt-5 sm:mt-7 border-l-2 border-[#9A7538] bg-[#F5F1E9] p-4 sm:p-6">
+              <p className="font-display text-[16.5px] sm:text-[18.5px] font-normal italic leading-[1.5] text-[#101D32]">
                 &ldquo;{about.quote}&rdquo;
               </p>
-              <p className="mt-4 font-sans text-[12.5px] font-bold uppercase tracking-[0.14em] text-[#9A7538]">
+              <p className="mt-2.5 font-sans text-[11px] sm:text-[11.5px] font-bold uppercase tracking-[0.12em] text-[#9A7538]">
                 Dedicación Directa
               </p>
             </blockquote>
           </div>
 
-          {/* Right Column: Narrative & Values (6 cols) */}
-          <div className="lg:col-span-6 flex flex-col justify-between h-full pt-1">
-            <div>
-              <p className="font-sans text-[16.5px] sm:text-[17px] leading-[1.8] text-[#59616C]">
-                {about.body}
+          {/* Right Column: Principles, Metrics, and Action */}
+          <div className="lg:col-span-6 flex flex-col justify-between h-full pt-0 lg:pt-2">
+            
+            {/* Principles */}
+            <div className="border-t lg:border-t-0 border-[#DDD7CC] pt-5 lg:pt-0">
+              <p className="font-sans text-[11px] sm:text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#9A7538] mb-1.5">
+                Nuestros Principios Rectores:
               </p>
+              <p className="font-display text-[16px] sm:text-[18px] font-medium leading-[1.6] text-[#101D32]">
+                {about.valuesLine}
+              </p>
+            </div>
 
-              <div className="mt-8 border-t border-[#DDD7CC] pt-6">
-                <p className="font-sans text-[11.5px] font-bold uppercase tracking-[0.2em] text-[#9A7538] mb-2">
-                  Nuestros Principios Rectores:
+            {/* Metrics (Moderate scale, no awkward line cuts) */}
+            <div className="mt-6 sm:mt-8 border-t border-[#DDD7CC] pt-5 sm:pt-6 flex flex-wrap gap-8 sm:gap-14 items-baseline">
+              <div>
+                <p className="font-display text-[26px] sm:text-[32px] font-bold text-[#101D32] leading-none whitespace-nowrap">
+                  Desde 2020
                 </p>
-                <p className="font-display text-[18px] sm:text-[19px] font-medium leading-[1.6] text-[#101D32]">
-                  {about.valuesLine}
+                <p className="mt-1.5 font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.12em] text-[#9A7538]">
+                  Trayectoria institucional
+                </p>
+              </div>
+
+              <div>
+                <p className="font-display text-[26px] sm:text-[32px] font-bold text-[#101D32] leading-none">
+                  6
+                </p>
+                <p className="mt-1.5 font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.12em] text-[#9A7538]">
+                  Áreas de práctica
                 </p>
               </div>
             </div>
 
-            <div className="mt-9">
+            {/* Action CTA */}
+            <div className="mt-7 sm:mt-9">
               <Link
                 href="/#areas"
-                className="btn-secondary min-h-[48px] px-8 text-[14.5px] inline-flex items-center gap-2"
+                className="btn-secondary w-full sm:w-auto min-h-[48px] h-[48px] px-7 text-[14px] inline-flex items-center justify-center gap-2 text-center"
               >
-                <span>Explorar áreas de práctica</span>
-                <span className="text-[17px] text-[#9A7538]">→</span>
+                <span>Ver áreas de práctica</span>
+                <span className="text-[16px] text-[#9A7538]">→</span>
               </Link>
             </div>
+
           </div>
 
-        </div>
-
-        {/* Metrics Below (Spanning across full width) */}
-        <div className="mt-16 border-t border-[#DDD7CC] pt-10 grid grid-cols-2 sm:grid-cols-4 gap-8">
-          {about.metrics.map((m) => (
-            <div key={m.label}>
-              <p className="font-display text-[40px] sm:text-[46px] font-bold text-[#101D32] leading-none">
-                {m.value}
-              </p>
-              <p className="mt-2 font-sans text-[12.5px] font-bold uppercase tracking-[0.16em] text-[#9A7538]">
-                {m.label}
-              </p>
-            </div>
-          ))}
         </div>
 
       </div>
     </section>
   )
 }
+

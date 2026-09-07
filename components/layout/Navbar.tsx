@@ -4,9 +4,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState, useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { CONTACT_PHONES, WHATSAPP_URL } from '@/lib/areas'
+import { WHATSAPP_URL } from '@/lib/areas'
 import { cn } from '@/lib/cn'
 import { t } from '@/i18n'
 
@@ -14,6 +14,8 @@ export default function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const headerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +25,44 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Lock body scroll and set attribute when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      document.body.setAttribute('data-mobile-menu-open', 'true')
+      return () => {
+        document.body.style.overflow = originalOverflow
+        document.body.removeAttribute('data-mobile-menu-open')
+      }
+    } else {
+      document.body.removeAttribute('data-mobile-menu-open')
+    }
+  }, [open])
+
+  // Close menu on Escape and return focus
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && open) {
+        setOpen(false)
+        menuButtonRef.current?.focus()
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [open])
+
+  // Close menu on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (open && headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleOutsideClick)
+    return () => document.removeEventListener('mousedown', handleOutsideClick)
+  }, [open])
 
   const navLinks = useMemo(
     () => [
@@ -36,13 +76,14 @@ export default function Navbar() {
 
   return (
     <header
+      ref={headerRef}
       className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
+        'sticky top-0 z-50 w-full transition-all duration-300 relative',
         'border-b border-[#DDD7CC] bg-[#FCFBF8]',
         scrolled ? 'shadow-[0_4px_30px_rgba(16,29,50,0.07)]' : '',
       )}
     >
-      <div className="mx-auto flex h-[62px] sm:h-[68px] lg:h-[72px] max-w-[1240px] items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10">
+      <div className="mx-auto flex h-[62px] sm:h-[68px] lg:h-[72px] max-w-[1240px] items-center justify-between px-4 min-[375px]:px-5 sm:px-6 md:px-8 lg:px-10">
         {/* Brand Logo & Editorial Signature */}
         <Link
           href="/"
@@ -60,10 +101,10 @@ export default function Navbar() {
             />
           </span>
           <div className="flex flex-col">
-            <span className="font-display text-[17px] sm:text-[19px] lg:text-[21px] font-semibold tracking-[0.01em] text-[#101D32] transition-colors group-hover:text-[#9A7538] leading-tight">
+            <span className="font-sans text-[16px] sm:text-[17.5px] lg:text-[19px] font-medium tracking-[-0.015em] text-[#101D32] transition-colors group-hover:text-[#9A7538] leading-tight">
               Romio &amp; Asociados
             </span>
-            <span className="font-sans text-[9.5px] sm:text-[10.5px] lg:text-[11px] font-bold uppercase tracking-[0.14em] text-[#59616C] leading-tight mt-0.5">
+            <span className="font-sans text-[9px] sm:text-[10px] lg:text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[#59616C] leading-tight mt-0.5">
               Estudio Jurídico · Mar del Plata
             </span>
           </div>
@@ -103,13 +144,15 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle Button */}
+        {/* Mobile Hamburger Toggle Button (44x44 minimum touch target) */}
         <button
+          ref={menuButtonRef}
           type="button"
-          className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center border border-[#DDD7CC] bg-[#FCFBF8] text-[#101D32] transition-colors hover:border-[#101D32] hover:bg-[#F5F1E9] lg:hidden"
+          className="inline-flex min-h-[44px] min-w-[44px] h-11 w-11 items-center justify-center border border-[#DDD7CC] bg-[#FCFBF8] text-[#101D32] transition-colors hover:border-[#101D32] hover:bg-[#F5F1E9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A7538] lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? t('common.aria.closeMenu') : t('common.aria.openMenu')}
           aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           <svg
             className="h-5 w-5"
@@ -128,73 +171,74 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Absolute Dropdown Menu */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="border-b border-[#DDD7CC] bg-[#FCFBF8] shadow-[0_16px_36px_rgba(16,29,50,0.12)] lg:hidden overflow-hidden"
-          >
-            <div className="px-5 pt-2 pb-6 flex flex-col">
-              {/* Navigation Items in Structured Rows */}
-              <nav className="flex flex-col border-t border-[#DDD7CC]/60" aria-label="Navegación móvil">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="group flex items-center justify-between py-3.5 border-b border-[#DDD7CC]/60 transition-colors hover:bg-[#F5F1E9]/60"
-                  >
-                    <div className="flex items-center gap-3.5">
-                      <span className="font-display text-[13px] font-semibold text-[#9A7538]">
-                        {link.num}
-                      </span>
-                      <span className="font-display text-[17px] font-semibold text-[#101D32] group-hover:text-[#9A7538] transition-colors">
-                        {link.label}
-                      </span>
-                    </div>
-                    <span className="font-sans text-[15px] text-[#9A7538] transition-transform duration-200 group-hover:translate-x-1">
-                      →
-                    </span>
-                  </Link>
-                ))}
-              </nav>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.18 }}
+              className="fixed inset-0 top-[62px] sm:top-[68px] z-40 bg-[#101D32]/40 backdrop-blur-xs lg:hidden"
+              onClick={() => setOpen(false)}
+              aria-hidden="true"
+            />
 
-              {/* Direct Contact Card on Ivory */}
-              <div className="mt-4 border border-[#DDD7CC] bg-[#F5F1E9] p-4">
-                <p className="font-sans text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#9A7538]">
-                  Atención Directa · Estudio
-                </p>
+            {/* Absolute Panel (does not push content or change header height) */}
+            <motion.div
+              id="mobile-menu"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menú principal de navegación"
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+              className="absolute top-full left-0 right-0 z-50 max-h-[calc(100dvh-62px)] sm:max-h-[calc(100dvh-68px)] overflow-y-auto border-b border-[#DDD7CC] bg-[#FCFBF8] shadow-[0_20px_40px_rgba(16,29,50,0.14)] lg:hidden"
+            >
+              <div className="px-4 min-[375px]:px-5 pt-1 pb-6 flex flex-col">
+                {/* Navigation Items */}
+                <nav className="flex flex-col border-t border-[#DDD7CC]/60" aria-label="Navegación móvil">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="group flex items-center justify-between py-3.5 border-b border-[#DDD7CC]/60 transition-colors hover:bg-[#F5F1E9]/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#9A7538]"
+                    >
+                      <div className="flex items-center gap-3.5">
+                        <span className="font-display text-[13px] font-semibold text-[#9A7538]">
+                          {link.num}
+                        </span>
+                        <span className="font-display text-[17px] font-semibold text-[#101D32] group-hover:text-[#9A7538] transition-colors">
+                          {link.label}
+                        </span>
+                      </div>
+                      <span className="font-sans text-[15px] text-[#9A7538] transition-transform duration-200 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </Link>
+                  ))}
+                </nav>
+
+                {/* Primary Consultation Button */}
                 <a
-                  href={`https://wa.me/5492233118656`}
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-display mt-1 block text-[16px] font-semibold text-[#101D32] hover:text-[#9A7538] transition-colors"
+                  onClick={() => setOpen(false)}
+                  className="btn-primary mt-5 w-full h-[48px] min-h-[48px] text-[14px] font-bold tracking-[0.06em] flex items-center justify-center text-center"
                 >
-                  {CONTACT_PHONES[0].display}
+                  Solicitar consulta
                 </a>
-                <p className="mt-0.5 font-sans text-[12px] text-[#59616C]">
-                  Lunes a Viernes de 9:00 a 17:00 hs · Presencial &amp; Virtual
-                </p>
               </div>
-
-              {/* Primary Consultation Button */}
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
-                className="btn-primary mt-4 w-full h-[46px] min-h-[46px] text-[13.5px] font-bold tracking-[0.06em]"
-              >
-                Solicitar consulta
-              </a>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
   )
 }
+
