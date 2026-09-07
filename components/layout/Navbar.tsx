@@ -140,7 +140,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="btn-primary min-h-[42px] h-[42px] px-5 text-[13px]"
           >
-            Solicitar consulta
+            Consultar por WhatsApp
           </a>
         </div>
 
@@ -231,7 +231,7 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className="btn-primary mt-5 w-full h-[48px] min-h-[48px] text-[14px] font-bold tracking-[0.06em] flex items-center justify-center text-center"
                 >
-                  Solicitar consulta
+                  Consultar por WhatsApp
                 </a>
               </div>
             </motion.div>

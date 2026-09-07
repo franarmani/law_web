@@ -82,7 +82,7 @@ export default function ContactSection() {
               rel="noopener noreferrer"
               className="btn-primary w-full h-[48px] min-h-[48px] text-[14px] font-bold flex items-center justify-center text-center"
             >
-              Contactar por WhatsApp
+              Consultar por WhatsApp
             </a>
           </div>
         </div>
@@ -95,8 +95,8 @@ export default function ContactSection() {
             <h3 className="text-[20px] sm:text-[24px] font-semibold text-[#101D32]">
               Envianos tu consulta
             </h3>
-            <p className="mt-1 font-sans text-[14px] sm:text-[15px] text-[#59616C]">
-              Completá el formulario para orientarte y responderte a la brevedad por WhatsApp.
+            <p className="mt-1 font-sans text-[14px] sm:text-[15px] leading-relaxed text-[#59616C]">
+              Completá los datos y, al hacer clic, se abrirá WhatsApp con tu mensaje preparado para enviarlo directamente a las profesionales.
             </p>
 
             <form onSubmit={handleSubmit} noValidate className="mt-5 sm:mt-6 flex flex-col gap-4">
@@ -172,7 +172,7 @@ export default function ContactSection() {
               </div>
 
               <button type="submit" className="btn-primary mt-1 w-full h-[48px] min-h-[48px] text-[14.5px]">
-                {t('home.contact.form.submit')}
+                Consultar por WhatsApp
               </button>
             </form>
           </div>

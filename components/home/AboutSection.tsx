@@ -33,13 +33,17 @@ export default function AboutSection() {
               {about.body}
             </p>
 
-            {/* Compact Institutional Quote */}
-            <blockquote className="mt-5 sm:mt-7 border-l-2 border-[#9A7538] bg-[#F5F1E9] p-4 sm:p-6">
-              <p className="font-display text-[16.5px] sm:text-[18.5px] font-normal italic leading-[1.5] text-[#101D32]">
-                &ldquo;{about.quote}&rdquo;
+            {/* Modalities of attention integrated from the removed trust bar */}
+            <div className="mt-4 sm:mt-5 flex items-start gap-3 border-l-2 border-[#9A7538] bg-[#F5F1E9] p-3.5 sm:p-4">
+              <p className="font-sans text-[13.5px] sm:text-[14px] leading-relaxed text-[#101D32]">
+                <strong className="font-semibold text-[#101D32]">Modalidad presencial y virtual:</strong> Sede profesional en Rivadavia 3188, Mar del Plata, y atención remota para causas en toda la Provincia de Buenos Aires y el país.
               </p>
-              <p className="mt-2.5 font-sans text-[11px] sm:text-[11.5px] font-bold uppercase tracking-[0.12em] text-[#9A7538]">
-                Dedicación Directa
+            </div>
+
+            {/* Compact Institutional Quote */}
+            <blockquote className="mt-4 sm:mt-5 border-l-2 border-[#9A7538] bg-[#F5F1E9] p-4 sm:p-5">
+              <p className="font-display text-[15.5px] sm:text-[17px] font-normal italic leading-[1.55] text-[#101D32]">
+                &ldquo;{about.quote}&rdquo;
               </p>
             </blockquote>
           </div>

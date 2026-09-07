@@ -81,33 +81,26 @@ export default function AreasGrid() {
                   </div>
                 </div>
 
-                {/* Mobile / Tablet layout: Stacked with flexible header */}
+                {/* Mobile / Tablet layout: Clean, compact and without long case bullets */}
                 <div className="flex flex-col lg:hidden">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                      <span className="font-display text-[18px] sm:text-[22px] font-semibold text-[#9A7538] shrink-0">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <h3 className="text-[17px] sm:text-[20px] font-semibold leading-tight text-[#101D32] truncate sm:whitespace-normal">
-                        {area.name}
-                      </h3>
-                    </div>
-                    <span className="font-display text-[19px] text-[#9A7538] shrink-0" aria-hidden="true">
-                      →
+                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                    <span className="font-display text-[18px] sm:text-[22px] font-semibold text-[#9A7538] shrink-0">
+                      {String(i + 1).padStart(2, '0')}
                     </span>
+                    <h3 className="text-[17px] sm:text-[20px] font-semibold leading-tight text-[#101D32]">
+                      {area.name}
+                    </h3>
                   </div>
 
                   <p className="mt-2 font-sans text-[14px] sm:text-[15px] leading-[1.6] text-[#59616C]">
                     {area.tagline}
                   </p>
 
-                  <div className="mt-2.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-sans text-[12.5px] sm:text-[13px]">
-                    {area.services.slice(0, 2).map((srv, sIdx) => (
-                      <span key={sIdx} className="inline-flex items-center gap-1.5 text-[#20242A]">
-                        <span className="text-[#9A7538] font-bold">―</span>
-                        <span>{srv}</span>
-                      </span>
-                    ))}
+                  <div className="mt-3 inline-flex items-center gap-1.5 font-sans text-[13px] font-bold uppercase tracking-[0.06em] text-[#9A7538]">
+                    <span>Ver servicios</span>
+                    <span className="text-[15px] transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
+                      →
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -135,7 +128,7 @@ export default function AreasGrid() {
               rel="noopener noreferrer"
               className="btn-primary w-full sm:w-auto shrink-0 !bg-[#9A7538] !border-[#9A7538] !text-[#FCFBF8] hover:!bg-[#FCFBF8] hover:!text-[#101D32] min-h-[48px] h-[48px] px-7 text-[14px] font-semibold flex items-center justify-center text-center"
             >
-              {t('common.cta.letsTalk')}
+              Consultar por WhatsApp
             </a>
           </div>
         </div>

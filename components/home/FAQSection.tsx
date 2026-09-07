@@ -34,7 +34,8 @@ export default function FAQSection() {
               Respuestas claras y directas a las inquietudes más habituales antes de iniciar una consulta o proceso legal.
             </p>
 
-            <div className="mt-7 sm:mt-8 border border-[#DDD7CC] bg-[#FCFBF8] p-5 min-[375px]:p-6 sm:p-7 shadow-xs">
+            {/* Desktop Helper Box (Hidden on mobile to place it after accordion) */}
+            <div className="hidden lg:block mt-7 sm:mt-8 border border-[#DDD7CC] bg-[#FCFBF8] p-6 sm:p-7 shadow-xs">
               <p className="font-display text-[18px] sm:text-[19px] font-semibold text-[#101D32]">
                 ¿Aún tenés alguna duda?
               </p>
@@ -45,61 +46,81 @@ export default function FAQSection() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary mt-5 w-full text-center min-h-[48px] h-[48px] text-[14px]"
+                className="btn-primary mt-5 w-full text-center min-h-[48px] h-[48px] text-[14px] flex items-center justify-center"
               >
-                Hacer consulta directa
+                Consultar por WhatsApp
               </a>
             </div>
           </div>
 
           {/* Right Column: Wide Accordion List */}
-          <div className="flex flex-col border border-[#DDD7CC] bg-[#FCFBF8]">
-            {items.map((item, i) => {
-              const isOpen = openIndex === i
-              const btnId = `faq-btn-${i}`
-              const panelId = `faq-panel-${i}`
+          <div className="flex flex-col">
+            <div className="flex flex-col border border-[#DDD7CC] bg-[#FCFBF8]">
+              {items.map((item, i) => {
+                const isOpen = openIndex === i
+                const btnId = `faq-btn-${i}`
+                const panelId = `faq-panel-${i}`
 
-              return (
-                <div key={item.q} className="border-b border-[#DDD7CC] last:border-b-0">
-                  <button
-                    type="button"
-                    id={btnId}
-                    className="flex min-h-[56px] sm:min-h-[64px] w-full items-center justify-between gap-4 sm:gap-6 px-4 min-[375px]:px-5 py-4 sm:px-8 text-left transition-colors duration-150 hover:bg-[#F5F1E9]/50 focus-visible:outline-none"
-                    onClick={() => setOpenIndex(isOpen ? null : i)}
-                    aria-expanded={isOpen}
-                    aria-controls={panelId}
-                  >
-                    <span className="font-display text-[16px] sm:text-[18px] font-semibold text-[#101D32] leading-snug">
-                      {item.q}
-                    </span>
-                    <span className="font-display shrink-0 text-xl font-semibold text-[#9A7538]">
-                      {isOpen ? '−' : '+'}
-                    </span>
-                  </button>
+                return (
+                  <div key={item.q} className="border-b border-[#DDD7CC] last:border-b-0">
+                    <button
+                      type="button"
+                      id={btnId}
+                      className="flex min-h-[56px] sm:min-h-[64px] w-full items-center justify-between gap-4 sm:gap-6 px-4 min-[375px]:px-5 py-4 sm:px-8 text-left transition-colors duration-150 hover:bg-[#F5F1E9]/50 focus-visible:outline-none"
+                      onClick={() => setOpenIndex(isOpen ? null : i)}
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                    >
+                      <span className="font-display text-[16px] sm:text-[18px] font-semibold text-[#101D32] leading-snug">
+                        {item.q}
+                      </span>
+                      <span className="font-display shrink-0 text-xl font-semibold text-[#9A7538]">
+                        {isOpen ? '−' : '+'}
+                      </span>
+                    </button>
 
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        id={panelId}
-                        role="region"
-                        aria-labelledby={btnId}
-                        initial={reduced ? false : { height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={reduced ? undefined : { height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2, ease: 'easeOut' }}
-                        className="overflow-hidden"
-                      >
-                        <div className="border-t border-[#DDD7CC]/50 px-4 min-[375px]:px-5 pb-5 pt-3 sm:px-8 sm:pb-6 sm:pt-4">
-                          <p className="font-sans text-[15px] sm:text-[16px] leading-[1.7] text-[#59616C]">
-                            {item.a}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              )
-            })}
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          id={panelId}
+                          role="region"
+                          aria-labelledby={btnId}
+                          initial={reduced ? false : { height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={reduced ? undefined : { height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2, ease: 'easeOut' }}
+                          className="overflow-hidden"
+                        >
+                          <div className="border-t border-[#DDD7CC]/50 px-4 min-[375px]:px-5 pb-5 pt-3 sm:px-8 sm:pb-6 sm:pt-4">
+                            <p className="font-sans text-[15px] sm:text-[16px] leading-[1.7] text-[#59616C]">
+                              {item.a}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Mobile Closing Invitation (Clean and concise below accordion) */}
+            <div className="mt-6 flex flex-col p-5 bg-[#FCFBF8] border border-[#DDD7CC] lg:hidden">
+              <p className="font-display text-[17px] font-semibold text-[#101D32]">
+                ¿Aún tenés alguna duda?
+              </p>
+              <p className="mt-1.5 font-sans text-[14px] leading-relaxed text-[#59616C]">
+                Escribinos directamente por WhatsApp y analizamos tu consulta sin compromiso.
+              </p>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary mt-4 w-full h-[48px] min-h-[48px] text-[14px] font-semibold flex items-center justify-center text-center shadow-xs"
+              >
+                Consultar por WhatsApp
+              </a>
+            </div>
           </div>
 
         </div>
