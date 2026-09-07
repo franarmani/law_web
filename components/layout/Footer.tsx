@@ -16,19 +16,19 @@ export default function Footer() {
           
           {/* Column 1: Brand & Philosophy (5 cols) */}
           <div className="lg:col-span-5">
-            {/* Official Logo on clean white surface with discreet padding */}
+            {/* Official Footer Logo in white with transparent background */}
             <Link
               href="/"
-              className="inline-block bg-white p-2 sm:p-2.5 border border-[#9A7538]/40 shadow-xs transition-opacity hover:opacity-95 focus-visible:outline-none"
+              className="inline-block transition-opacity hover:opacity-85 focus-visible:outline-none"
               aria-label="Romio & Asociados — Inicio"
             >
-              <div className="relative h-[86px] w-[86px] sm:h-[96px] sm:w-[96px]">
+              <div className="relative h-[95px] w-[95px] sm:h-[110px] sm:w-[110px]">
                 <Image
-                  src="/logo/romio-color.jpg"
+                  src="/logo/logofooter.png"
                   alt="Romio & Asociados — Estudio Jurídico"
                   fill
-                  className="object-contain"
-                  sizes="(max-width: 640px) 86px, 96px"
+                  className="object-contain object-left"
+                  sizes="(max-width: 640px) 95px, 110px"
                 />
               </div>
             </Link>
