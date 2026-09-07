@@ -11,19 +11,19 @@ export default function AreaFAQ({ area }: { area: Area }) {
   const reduced = useReducedMotion()
 
   return (
-    <section className="w-full bg-[#F5F1E9] py-14 sm:py-20 lg:py-28 border-t border-[#DDD7CC]">
+    <section className="w-full bg-[#F5F1E9] py-9 min-[375px]:py-11 sm:py-16 lg:py-24 border-t border-[#DDD7CC]">
       <div className="mx-auto max-w-[1240px] px-4 min-[375px]:px-5 sm:px-6 md:px-8 lg:px-10">
         
         {/* Section Header */}
-        <div className="mx-auto mb-10 sm:mb-16 max-w-2xl text-center">
-          <div className="inline-flex items-center gap-3">
-            <span className="h-px w-6 sm:w-8 bg-[#9A7538]" aria-hidden="true" />
-            <p className="font-sans text-[11.5px] min-[375px]:text-[12.5px] font-bold uppercase tracking-[0.16em] text-[#9A7538]">
+        <div className="mx-auto mb-7 sm:mb-12 max-w-2xl text-center">
+          <div className="inline-flex items-center gap-2">
+            <span className="h-px w-5 sm:w-7 bg-[#9A7538]" aria-hidden="true" />
+            <p className="font-sans text-[10.5px] min-[375px]:text-[11px] font-bold uppercase tracking-[0.16em] text-[#9A7538]">
               {t('areas.ui.faq.eyebrow')}
             </p>
-            <span className="h-px w-6 sm:w-8 bg-[#9A7538]" aria-hidden="true" />
+            <span className="h-px w-5 sm:w-7 bg-[#9A7538]" aria-hidden="true" />
           </div>
-          <h2 className="mt-4 text-[26px] sm:text-[36px] lg:text-[42px] font-semibold leading-[1.2] text-[#101D32]">
+          <h2 className="mt-2.5 sm:mt-3 text-[21px] min-[375px]:text-[23px] sm:text-[30px] lg:text-[36px] font-semibold leading-[1.2] text-[#101D32]">
             {t('areas.ui.faq.title')}
           </h2>
         </div>
@@ -40,15 +40,15 @@ export default function AreaFAQ({ area }: { area: Area }) {
                 <button
                   type="button"
                   id={btnId}
-                  className="flex min-h-[56px] sm:min-h-[64px] w-full items-center justify-between gap-4 sm:gap-6 px-4 min-[375px]:px-5 py-4 sm:px-8 text-left transition-colors duration-150 hover:bg-[#F5F1E9]/60 focus-visible:outline-none"
+                  className="flex min-h-[48px] sm:min-h-[58px] w-full items-center justify-between gap-3 sm:gap-6 px-3.5 min-[375px]:px-4 py-3 sm:px-8 text-left transition-colors duration-150 hover:bg-[#F5F1E9]/60 focus-visible:outline-none"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                 >
-                  <span className="font-display text-[16px] sm:text-[18px] font-semibold text-[#101D32] leading-snug">
+                  <span className="font-display text-[14px] min-[375px]:text-[14.5px] sm:text-[16.5px] font-semibold text-[#101D32] leading-snug">
                     {item.q}
                   </span>
-                  <span className="font-display shrink-0 text-xl sm:text-2xl font-normal text-[#9A7538]">
+                  <span className="font-display shrink-0 text-lg font-normal text-[#9A7538]">
                     {isOpen ? '−' : '+'}
                   </span>
                 </button>
@@ -65,8 +65,8 @@ export default function AreaFAQ({ area }: { area: Area }) {
                       transition={{ duration: 0.22, ease: 'easeOut' }}
                       className="overflow-hidden"
                     >
-                      <div className="border-t border-[#DDD7CC]/50 px-4 min-[375px]:px-5 pb-5 pt-3 sm:px-8 sm:pb-6 sm:pt-4">
-                        <p className="font-sans text-[15px] sm:text-[16px] leading-[1.75] text-[#59616C]">
+                      <div className="border-t border-[#DDD7CC]/50 px-3.5 min-[375px]:px-4 pb-4 pt-2.5 sm:px-8 sm:pb-5 sm:pt-3">
+                        <p className="font-sans text-[12.5px] min-[375px]:text-[13px] sm:text-[14.5px] leading-[1.65] text-[#59616C]">
                           {item.a}
                         </p>
                       </div>

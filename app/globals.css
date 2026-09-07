@@ -26,7 +26,14 @@
 
   /* Font families */
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-serif), Georgia, serif;
+  --font-display: 'CleanAmpersand', var(--font-serif), Georgia, serif;
+}
+
+/* Anular ampersand ornamental: Forzar que el carácter & siempre use Inter Medium */
+@font-face {
+  font-family: 'CleanAmpersand';
+  src: local('Inter Medium'), local('Inter-Medium'), local('Inter'), system-ui;
+  unicode-range: U+0026; /* Código Unicode para '&' */
 }
 
 html {
@@ -51,7 +58,7 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: 'CleanAmpersand', var(--font-serif), Georgia, serif;
 }
 
 .font-sans {
@@ -61,27 +68,27 @@ body {
 /* Tipografía Editorial */
 @layer base {
   h1, .text-h1 {
-    font-family: var(--font-serif), Georgia, serif;
+    font-family: 'CleanAmpersand', var(--font-serif), Georgia, serif;
     font-weight: 600;
-    font-size: clamp(2.25rem, 5vw, 4.4rem); /* 36px en móvil a 70px en desktop */
-    line-height: 1.1;
+    font-size: clamp(1.65rem, 3.8vw, 3.25rem); /* ~26px en móvil a 52px en desktop */
+    line-height: 1.15;
     letter-spacing: -0.015em;
     color: #101D32;
   }
 
   h2, .text-h2 {
-    font-family: var(--font-serif), Georgia, serif;
+    font-family: 'CleanAmpersand', var(--font-serif), Georgia, serif;
     font-weight: 600;
-    font-size: clamp(1.75rem, 3.5vw, 2.75rem); /* 28px en móvil a 44px en desktop */
-    line-height: 1.18;
+    font-size: clamp(1.35rem, 2.5vw, 2.25rem); /* ~21.5px en móvil a 36px en desktop */
+    line-height: 1.22;
     letter-spacing: -0.01em;
     color: #101D32;
   }
 
   h3, .text-h3 {
-    font-family: var(--font-serif), Georgia, serif;
+    font-family: 'CleanAmpersand', var(--font-serif), Georgia, serif;
     font-weight: 600;
-    font-size: clamp(1.35rem, 2vw, 1.8rem); /* 21px a 29px */
+    font-size: clamp(1.05rem, 1.5vw, 1.35rem); /* ~16.8px en móvil a 21.5px */
     line-height: 1.28;
     color: #101D32;
   }
@@ -89,13 +96,13 @@ body {
   p, .text-body {
     font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 400;
-    font-size: 16.5px;
-    line-height: 1.75;
+    font-size: clamp(0.85rem, 1vw, 0.95rem); /* 13.6px en móvil a 15.2px en desktop */
+    line-height: 1.65;
     color: #20242A;
   }
 
   section[id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 4.5rem;
   }
 
   input, select, textarea {

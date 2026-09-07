@@ -101,10 +101,10 @@ export default function Navbar() {
             />
           </span>
           <div className="flex flex-col">
-            <span className="font-sans text-[16px] sm:text-[17.5px] lg:text-[19px] font-medium tracking-[-0.015em] text-[#101D32] transition-colors group-hover:text-[#9A7538] leading-tight">
+            <span className="font-sans text-[15px] sm:text-[17px] lg:text-[18.5px] font-medium tracking-[-0.015em] text-[#101D32] transition-colors group-hover:text-[#9A7538] leading-tight">
               Romio &amp; Asociados
             </span>
-            <span className="font-sans text-[9px] sm:text-[10px] lg:text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[#59616C] leading-tight mt-0.5">
+            <span className="font-sans text-[8.5px] sm:text-[9.5px] lg:text-[10px] font-semibold uppercase tracking-[0.14em] text-[#59616C] leading-tight mt-0.5">
               Estudio Jurídico · Mar del Plata
             </span>
           </div>
@@ -123,7 +123,7 @@ export default function Navbar() {
                   isActive && 'text-[#101D32]',
                 )}
               >
-                <span className="font-display text-[11px] font-normal text-[#9A7538] group-hover:text-[#101D32] transition-colors">
+                <span className="font-sans text-[11px] font-semibold text-[#9A7538] group-hover:text-[#101D32] transition-colors">
                   {link.num}
                 </span>
                 <span>{link.label}</span>
@@ -138,7 +138,7 @@ export default function Navbar() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary min-h-[42px] h-[42px] px-5 text-[13px]"
+            className="btn-primary min-h-[40px] h-[40px] px-5 text-[12.5px]"
           >
             Consultar por WhatsApp
           </a>
@@ -198,7 +198,7 @@ export default function Navbar() {
               transition={{ duration: 0.2, ease: 'easeOut' }}
               className="absolute top-full left-0 right-0 z-50 max-h-[calc(100dvh-62px)] sm:max-h-[calc(100dvh-68px)] overflow-y-auto border-b border-[#DDD7CC] bg-[#FCFBF8] shadow-[0_20px_40px_rgba(16,29,50,0.14)] lg:hidden"
             >
-              <div className="px-4 min-[375px]:px-5 pt-1 pb-6 flex flex-col">
+              <div className="px-4 min-[375px]:px-5 pt-1 pb-5 flex flex-col">
                 {/* Navigation Items */}
                 <nav className="flex flex-col border-t border-[#DDD7CC]/60" aria-label="Navegación móvil">
                   {navLinks.map((link) => (
@@ -206,17 +206,17 @@ export default function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="group flex items-center justify-between py-3.5 border-b border-[#DDD7CC]/60 transition-colors hover:bg-[#F5F1E9]/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#9A7538]"
+                      className="group flex items-center justify-between py-3 border-b border-[#DDD7CC]/60 transition-colors hover:bg-[#F5F1E9]/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#9A7538]"
                     >
-                      <div className="flex items-center gap-3.5">
-                        <span className="font-display text-[13px] font-semibold text-[#9A7538]">
+                      <div className="flex items-center gap-3">
+                        <span className="font-sans text-[11.5px] font-semibold text-[#9A7538]">
                           {link.num}
                         </span>
-                        <span className="font-display text-[17px] font-semibold text-[#101D32] group-hover:text-[#9A7538] transition-colors">
+                        <span className="font-sans text-[15px] font-medium text-[#101D32] group-hover:text-[#9A7538] transition-colors">
                           {link.label}
                         </span>
                       </div>
-                      <span className="font-sans text-[15px] text-[#9A7538] transition-transform duration-200 group-hover:translate-x-1">
+                      <span className="font-sans text-[14px] text-[#9A7538] transition-transform duration-200 group-hover:translate-x-1">
                         →
                       </span>
                     </Link>
@@ -229,7 +229,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
-                  className="btn-primary mt-5 w-full h-[48px] min-h-[48px] text-[14px] font-bold tracking-[0.06em] flex items-center justify-center text-center"
+                  className="btn-primary mt-4 w-full h-[44px] min-h-[44px] text-[13px] font-semibold tracking-[0.06em] flex items-center justify-center text-center"
                 >
                   Consultar por WhatsApp
                 </a>
