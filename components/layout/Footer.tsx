@@ -96,11 +96,25 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar: Clear high-contrast copyright text */}
-        <div className="flex flex-col gap-3 pt-5 sm:pt-6 font-sans text-[13px] min-[375px]:text-[13.5px] sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[#F5F1E9] font-normal tracking-wide">
-            {t('footer.copyright', { year })}
-          </p>
+        {/* Bottom Bar: Clear high-contrast copyright text & discreet credit */}
+        <div className="flex flex-col gap-3.5 pt-5 sm:pt-6 font-sans text-[12.5px] min-[375px]:text-[13px] sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+            <p className="text-[#F5F1E9] font-normal tracking-wide">
+              {t('footer.copyright', { year })}
+            </p>
+            <span className="hidden sm:inline text-white/30" aria-hidden="true">·</span>
+            <p className="text-[#A4B3C6] text-[11.5px] min-[375px]:text-[12px] font-normal">
+              Desarrollado por{' '}
+              <a
+                href="https://portfoliofrandev.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#D4DEEB] underline decoration-white/30 underline-offset-2 transition-colors hover:text-[#9A7538]"
+              >
+                FranDev
+              </a>
+            </p>
+          </div>
           <div className="flex flex-wrap gap-5 sm:gap-6">
             <Link href="/privacidad" className="py-1 text-[#D4DEEB] transition-colors hover:text-[#9A7538]">
               Política de Privacidad
