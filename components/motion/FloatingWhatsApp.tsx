@@ -1,11 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { WHATSAPP_URL } from '@/lib/areas'
 import { t } from '@/i18n'
 
 export default function FloatingWhatsApp() {
+  const pathname = usePathname()
   const [visible, setVisible] = useState(false)
   const reduced = useReducedMotion()
 
@@ -15,6 +17,12 @@ export default function FloatingWhatsApp() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // En la portada principal no se muestra el botón flotante para no duplicar
+  // las llamadas a WhatsApp del header, hero y sección final de contacto.
+  if (pathname === '/') {
+    return null
+  }
 
   return (
     <AnimatePresence>
@@ -52,4 +60,5 @@ export default function FloatingWhatsApp() {
     </AnimatePresence>
   )
 }
+
 

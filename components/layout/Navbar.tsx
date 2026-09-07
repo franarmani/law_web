@@ -67,8 +67,8 @@ export default function Navbar() {
   const navLinks = useMemo(
     () => [
       { label: t('navbar.links.home'), href: '/#inicio', num: '01' },
-      { label: t('navbar.links.about'), href: '/#nosotros', num: '02' },
-      { label: t('navbar.links.areas'), href: '/#areas', num: '03' },
+      { label: t('navbar.links.areas'), href: '/#areas', num: '02' },
+      { label: t('navbar.links.about'), href: '/#nosotros', num: '03' },
       { label: t('navbar.links.contact'), href: '/#contacto', num: '04' },
     ],
     [],
@@ -198,7 +198,7 @@ export default function Navbar() {
               transition={{ duration: 0.2, ease: 'easeOut' }}
               className="absolute top-full left-0 right-0 z-50 max-h-[calc(100dvh-62px)] sm:max-h-[calc(100dvh-68px)] overflow-y-auto border-b border-[#DDD7CC] bg-[#FCFBF8] shadow-[0_20px_40px_rgba(16,29,50,0.14)] lg:hidden"
             >
-              <div className="px-4 min-[375px]:px-5 pt-1 pb-5 flex flex-col">
+              <div className="px-4 min-[375px]:px-5 pt-1 pb-4 flex flex-col">
                 {/* Navigation Items */}
                 <nav className="flex flex-col border-t border-[#DDD7CC]/60" aria-label="Navegación móvil">
                   {navLinks.map((link) => (
@@ -222,17 +222,6 @@ export default function Navbar() {
                     </Link>
                   ))}
                 </nav>
-
-                {/* Primary Consultation Button */}
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
-                  className="btn-primary mt-4 w-full h-[44px] min-h-[44px] text-[13px] font-semibold tracking-[0.06em] flex items-center justify-center text-center"
-                >
-                  Consultar por WhatsApp
-                </a>
               </div>
             </motion.div>
           </>
