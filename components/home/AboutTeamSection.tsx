@@ -2,6 +2,7 @@
 'use client'
 
 import { useState } from 'react'
+import SectionReveal from '@/components/motion/SectionReveal'
 
 interface Professional {
   name: string
@@ -41,7 +42,7 @@ export default function AboutTeamSection() {
   return (
     <section
       id="nosotros"
-      className="relative w-full bg-[#F5F1E9] py-9 min-[375px]:py-11 sm:py-16 lg:py-20 border-b border-[#DDD7CC]"
+      className="snap-section relative w-full bg-[#F5F1E9] py-9 min-[375px]:py-11 sm:py-16 lg:py-20 border-b border-[#DDD7CC]"
       aria-label="El estudio y sus profesionales"
     >
       {/* Anchor for #profesionales */}
@@ -50,25 +51,29 @@ export default function AboutTeamSection() {
       <div className="mx-auto max-w-[1200px] px-5 min-[375px]:px-6 sm:px-8 lg:px-10">
         
         {/* Section Header & 2-sentence presentation */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-8 pb-5 sm:pb-7 border-b border-[#DDD7CC]">
-          <div>
-            <div className="flex items-center gap-2.5">
-              <span className="h-[2px] w-7 bg-[#9A7538] shrink-0" aria-hidden="true" />
-              <p className="font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.14em] text-[#9A7538]">
-                El estudio
-              </p>
+        <SectionReveal delay={0}>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-8 pb-5 sm:pb-7 border-b border-[#DDD7CC]">
+            <div>
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-7 bg-[#9A7538] shrink-0" aria-hidden="true" />
+                <p className="font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.14em] text-[#9A7538]">
+                  El estudio
+                </p>
+              </div>
+              <h2 className="mt-2 sm:mt-3 font-display text-[22px] min-[375px]:text-[24px] sm:text-[30px] lg:text-[36px] font-semibold leading-[1.2] text-[#101D32]">
+                El estudio y sus profesionales
+              </h2>
             </div>
-            <h2 className="mt-2 sm:mt-3 font-display text-[22px] min-[375px]:text-[24px] sm:text-[30px] lg:text-[36px] font-semibold leading-[1.2] text-[#101D32]">
-              El estudio y sus profesionales
-            </h2>
+            <p className="max-w-[500px] font-sans text-[14px] sm:text-[15.5px] leading-[1.65] text-[#59616C]">
+              Romio &amp; Asociados fue fundado en 2020 con el propósito de brindar una solución jurídica moderna, transparente y eficiente. Combinamos la experiencia en el litigio tradicional con la agilidad y atención directa de las abogadas a cargo.
+            </p>
           </div>
-          <p className="max-w-[500px] font-sans text-[14px] sm:text-[15.5px] leading-[1.65] text-[#59616C]">
-            Romio &amp; Asociados fue fundado en 2020 con el propósito de brindar una solución jurídica moderna, transparente y eficiente. Combinamos la experiencia en el litigio tradicional con la agilidad y atención directa de las abogadas a cargo.
-          </p>
-        </div>
+        </SectionReveal>
 
         {/* Professionals Cards: Clean, natural height */}
-        <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7">
+        <SectionReveal delay={0.08}>
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7">
+
           {professionals.map((member, idx) => {
             const isExpanded = expandedMember === idx
             const panelId = `trayectoria-panel-${idx}`
@@ -139,7 +144,8 @@ export default function AboutTeamSection() {
               </div>
             )
           })}
-        </div>
+          </div>
+        </SectionReveal>
 
       </div>
     </section>

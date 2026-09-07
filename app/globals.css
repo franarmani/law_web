@@ -38,14 +38,43 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
   background-color: #FCFBF8;
   color: #1A1F28;
   font-size: 16px;
 }
 
+/* Scroll snap sutil (proximity) únicamente en escritorio y pantallas con altura suficiente */
+@media (min-width: 1024px) and (min-height: 700px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-margin-top: 4.5rem;
+  }
+}
+
+/* Desactivar scroll snap en móvil, tablets y pantallas de poca altura */
+@media (max-width: 1023px), (max-height: 699px) {
+  html {
+    scroll-snap-type: none;
+  }
+
+  .snap-section {
+    scroll-snap-align: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
+    scroll-snap-type: none !important;
+  }
+
+  .snap-section {
+    scroll-snap-align: none !important;
   }
 }
 

@@ -10,6 +10,7 @@ import {
   areas,
 } from '@/lib/areas'
 import { interpolate, t } from '@/i18n'
+import SectionReveal from '@/components/motion/SectionReveal'
 
 export default function ContactSection() {
   const [name, setName] = useState('')
@@ -56,29 +57,33 @@ export default function ContactSection() {
   return (
     <section
       id="contacto"
-      className="w-full bg-[#FCFBF8] py-9 min-[375px]:py-11 sm:py-16 lg:py-20 border-b border-[#DDD7CC]"
+      className="snap-section w-full bg-[#FCFBF8] py-9 min-[375px]:py-11 sm:py-16 lg:py-20 border-b border-[#DDD7CC]"
       aria-label="Contacto"
     >
       <div className="mx-auto max-w-[1200px] px-5 min-[375px]:px-6 sm:px-8 lg:px-10">
         
         {/* Section Header */}
-        <div className="pb-5 sm:pb-7 border-b border-[#DDD7CC]">
-          <div className="flex items-center gap-2.5">
-            <span className="h-[2px] w-7 bg-[#9A7538] shrink-0" aria-hidden="true" />
-            <p className="font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.14em] text-[#9A7538]">
-              Contacto
+        <SectionReveal delay={0}>
+          <div className="pb-5 sm:pb-7 border-b border-[#DDD7CC]">
+            <div className="flex items-center gap-2.5">
+              <span className="h-[2px] w-7 bg-[#9A7538] shrink-0" aria-hidden="true" />
+              <p className="font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.14em] text-[#9A7538]">
+                Contacto
+              </p>
+            </div>
+            <h2 className="mt-2 sm:mt-3 font-display text-[22px] min-[375px]:text-[24px] sm:text-[30px] lg:text-[36px] font-semibold leading-[1.2] text-[#101D32]">
+              Hablemos de tu caso.
+            </h2>
+            <p className="mt-1.5 max-w-[560px] font-sans text-[14px] sm:text-[15.5px] leading-[1.6] text-[#59616C]">
+              Comunicate con nosotras para coordinar una primera consulta orientativa sobre tu situación legal.
             </p>
           </div>
-          <h2 className="mt-2 sm:mt-3 font-display text-[22px] min-[375px]:text-[24px] sm:text-[30px] lg:text-[36px] font-semibold leading-[1.2] text-[#101D32]">
-            Hablemos de tu caso.
-          </h2>
-          <p className="mt-1.5 max-w-[560px] font-sans text-[14px] sm:text-[15.5px] leading-[1.6] text-[#59616C]">
-            Comunicate con nosotras para coordinar una primera consulta orientativa sobre tu situación legal.
-          </p>
-        </div>
+        </SectionReveal>
 
         {/* Two Balanced Columns: Form & Structured Contact Details */}
-        <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+        <SectionReveal delay={0.08}>
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+
           
           {/* Form Column */}
           <div className="order-1 lg:order-2 lg:col-span-6 border border-[#DDD7CC] bg-[#FCFBF8] p-4 min-[375px]:p-5 sm:p-7 shadow-2xs">
@@ -261,8 +266,8 @@ export default function ContactSection() {
             </div>
 
           </div>
-
         </div>
+      </SectionReveal>
 
       </div>
     </section>
