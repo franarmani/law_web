@@ -23,17 +23,17 @@ export default function HeroSection() {
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             className="flex items-center justify-center mb-4"
           >
-            <span className="h-[1.5px] w-8 bg-[#9A7538]" aria-hidden="true" />
+            <span className="h-[2px] w-8 bg-[#9A7538]" aria-hidden="true" />
           </motion.div>
 
-          {/* 2. Label: Inter Medium, legible, 24px to title */}
+          {/* 2. Label: Institutional gold, bold uppercase tracking matching all sections: 24px to title */}
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: reduced ? 0 : 0.05 }}
             className="mb-6"
           >
-            <p className="font-sans font-medium text-[11px] min-[375px]:text-[11.5px] sm:text-[12.5px] uppercase tracking-[0.08em] sm:tracking-[0.10em] text-[#101D32] max-w-[280px] min-[360px]:max-w-none mx-auto leading-relaxed">
+            <p className="font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.14em] text-[#9A7538] max-w-[320px] sm:max-w-none mx-auto leading-relaxed">
               ROMIO &amp; ASOCIADOS · MAR DEL PLATA
             </p>
           </motion.div>
@@ -70,7 +70,7 @@ export default function HeroSection() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center h-[50px] min-h-[50px] w-full max-w-[320px] sm:w-auto sm:max-w-none px-8 bg-[#101D32] text-white font-sans text-[14px] font-semibold transition-colors duration-200 hover:bg-[#1B2D4A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A7538]"
+              className="inline-flex items-center justify-center h-[50px] min-h-[50px] w-full max-w-[320px] sm:w-auto sm:max-w-none px-8 bg-[#101D32] text-white font-sans text-[14px] font-semibold border border-[#101D32] transition-all duration-200 hover:bg-[#9A7538] hover:border-[#9A7538] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A7538] shadow-xs"
             >
               Consultar por WhatsApp
             </a>
