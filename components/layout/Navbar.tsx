@@ -1,4 +1,3 @@
-// components/layout/Navbar.tsx
 'use client'
 
 import Image from 'next/image'
@@ -26,7 +25,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Lock body scroll and set attribute when mobile menu is open
   useEffect(() => {
     if (open) {
       const originalOverflow = document.body.style.overflow
@@ -41,7 +39,6 @@ export default function Navbar() {
     }
   }, [open])
 
-  // Close menu on Escape and return focus
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && open) {
@@ -53,7 +50,6 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [open])
 
-  // Close menu on outside click
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       if (open && headerRef.current && !headerRef.current.contains(e.target as Node)) {
@@ -66,10 +62,10 @@ export default function Navbar() {
 
   const navLinks = useMemo(
     () => [
-      { label: t('navbar.links.home'), href: '/#inicio', num: '01' },
-      { label: t('navbar.links.areas'), href: '/#areas', num: '02' },
-      { label: t('navbar.links.about'), href: '/#nosotros', num: '03' },
-      { label: t('navbar.links.contact'), href: '/#contacto', num: '04' },
+      { label: t('navbar.links.home'), href: '/#inicio' },
+      { label: t('navbar.links.areas'), href: '/#areas' },
+      { label: t('navbar.links.about'), href: '/#nosotros' },
+      { label: t('navbar.links.contact'), href: '/#contacto' },
     ],
     [],
   )
@@ -84,7 +80,6 @@ export default function Navbar() {
       )}
     >
       <div className="mx-auto flex h-[62px] sm:h-[68px] lg:h-[72px] max-w-[1240px] items-center justify-between px-4 min-[375px]:px-5 sm:px-6 md:px-8 lg:px-10">
-        {/* Brand Logo & Editorial Signature */}
         <Link
           href="/"
           className="group flex items-center gap-2.5 sm:gap-3.5 focus-visible:outline-none"
@@ -110,7 +105,6 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Editorial Navigation */}
         <nav className="hidden items-center gap-7 xl:gap-9 lg:flex" aria-label="Navegación principal">
           {navLinks.map((link) => {
             const isActive = pathname === '/' && link.href.startsWith('/#')
@@ -119,32 +113,27 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'group flex items-baseline gap-1.5 font-sans text-[13.5px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors duration-200 hover:text-[#9A7538]',
+                  'font-sans text-[13.5px] font-semibold uppercase tracking-[0.06em] text-[#101D32] transition-colors duration-200 hover:text-[#9A7538]',
                   isActive && 'text-[#101D32]',
                 )}
               >
-                <span className="font-sans text-[11px] font-semibold text-[#9A7538] group-hover:text-[#101D32] transition-colors">
-                  {link.num}
-                </span>
                 <span>{link.label}</span>
               </Link>
             )
           })}
         </nav>
 
-        {/* Desktop CTA Button */}
         <div className="hidden items-center gap-6 lg:flex">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary min-h-[40px] h-[40px] px-5 text-[12.5px]"
+            className="btn-primary"
           >
             Consultar por WhatsApp
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle Button (44x44 minimum touch target) */}
         <button
           ref={menuButtonRef}
           type="button"
@@ -171,11 +160,9 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Absolute Dropdown Menu */}
       <AnimatePresence>
         {open && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -186,7 +173,6 @@ export default function Navbar() {
               aria-hidden="true"
             />
 
-            {/* Absolute Panel (does not push content or change header height) */}
             <motion.div
               id="mobile-menu"
               role="dialog"
@@ -199,7 +185,6 @@ export default function Navbar() {
               className="absolute top-full left-0 right-0 z-50 max-h-[calc(100dvh-62px)] sm:max-h-[calc(100dvh-68px)] overflow-y-auto border-b border-[#DDD7CC] bg-[#FCFBF8] shadow-[0_20px_40px_rgba(16,29,50,0.14)] lg:hidden"
             >
               <div className="px-4 min-[375px]:px-5 pt-1 pb-4 flex flex-col">
-                {/* Navigation Items */}
                 <nav className="flex flex-col border-t border-[#DDD7CC]/60" aria-label="Navegación móvil">
                   {navLinks.map((link) => (
                     <Link
@@ -208,14 +193,9 @@ export default function Navbar() {
                       onClick={() => setOpen(false)}
                       className="group flex items-center justify-between py-3 border-b border-[#DDD7CC]/60 transition-colors hover:bg-[#F5F1E9]/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#9A7538]"
                     >
-                      <div className="flex items-center gap-3">
-                        <span className="font-sans text-[11.5px] font-semibold text-[#9A7538]">
-                          {link.num}
-                        </span>
-                        <span className="font-sans text-[15px] font-medium text-[#101D32] group-hover:text-[#9A7538] transition-colors">
-                          {link.label}
-                        </span>
-                      </div>
+                      <span className="font-sans text-[15px] font-medium text-[#101D32] group-hover:text-[#9A7538] transition-colors">
+                        {link.label}
+                      </span>
                       <span className="font-sans text-[14px] text-[#9A7538] transition-transform duration-200 group-hover:translate-x-1">
                         →
                       </span>

@@ -1,4 +1,3 @@
-// components/layout/Footer.tsx
 import Link from 'next/link'
 import Image from 'next/image'
 import { areas, CONTACT_EMAIL, WHATSAPP_URL } from '@/lib/areas'
@@ -11,12 +10,9 @@ export default function Footer() {
     <footer className="w-full bg-[#101D32] pt-8 sm:pt-12 lg:pt-16 pb-[calc(5rem+env(safe-area-inset-bottom))] sm:pb-12 lg:pb-14 text-white border-t border-[#9A7538]/40" aria-label="Pie de página">
       <div className="mx-auto max-w-[1200px] px-4 min-[375px]:px-5 sm:px-6 md:px-8 lg:px-10">
         
-        {/* Main Footer Grid */}
         <div className="grid grid-cols-1 gap-6 sm:gap-10 pb-7 sm:pb-10 border-b border-white/15 lg:grid-cols-12 lg:gap-12">
           
-          {/* Column 1: Brand & Philosophy (5 cols) */}
           <div className="lg:col-span-5">
-            {/* Official Footer Logo in white with transparent background */}
             <Link
               href="/"
               className="inline-block transition-opacity hover:opacity-85 focus-visible:outline-none"
@@ -37,7 +33,7 @@ export default function Footer() {
               {t('footer.studioBlurbLine1')} {t('footer.studioBlurbLine2')}
             </p>
 
-            <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-2 font-sans text-[10.5px] sm:text-[12px] font-bold uppercase tracking-[0.14em] text-[#9A7538]">
+            <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-2 font-sans text-[10.5px] sm:text-[12px] font-bold uppercase tracking-[0.14em] text-[#C59B53]">
               <span>Mar del Plata</span>
               <span>·</span>
               <span>Buenos Aires</span>
@@ -46,9 +42,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Practice Areas (4 cols) */}
           <div className="lg:col-span-4">
-            <p className="font-sans text-[10.5px] sm:text-[12px] font-bold uppercase tracking-[0.16em] text-[#9A7538]">
+            <p className="font-sans text-[10.5px] sm:text-[12px] font-bold uppercase tracking-[0.16em] text-[#C59B53]">
               {t('footer.areasHeading')}
             </p>
             <ul className="mt-2.5 sm:mt-4 grid grid-cols-1 min-[440px]:grid-cols-2 lg:grid-cols-1 gap-2 sm:gap-3">
@@ -56,7 +51,7 @@ export default function Footer() {
                 <li key={area.slug}>
                   <Link
                     href={`/areas/${area.slug}`}
-                    className="inline-block py-0.5 font-sans text-[12.5px] sm:text-[14px] text-[#D4DEEB] transition-colors hover:text-[#9A7538]"
+                    className="inline-block py-0.5 font-sans text-[12.5px] sm:text-[14px] text-[#D4DEEB] transition-colors hover:text-[#C59B53]"
                   >
                     {area.name}
                   </Link>
@@ -65,9 +60,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Contact & Attention (3 cols) */}
           <div className="lg:col-span-3">
-            <p className="font-sans text-[10.5px] sm:text-[12px] font-bold uppercase tracking-[0.16em] text-[#9A7538]">
+            <p className="font-sans text-[10.5px] sm:text-[12px] font-bold uppercase tracking-[0.16em] text-[#C59B53]">
               {t('footer.contactHeading')}
             </p>
             <div className="mt-2.5 sm:mt-4 flex flex-col gap-2 sm:gap-2.5 font-sans text-[12.5px] sm:text-[14px] text-[#D4DEEB]">
@@ -96,7 +90,6 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar: Clear high-contrast copyright text & discreet credit */}
         <div className="flex flex-col gap-3 pt-4 sm:pt-6 font-sans text-[11px] sm:text-[12.5px] sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
             <p className="text-[#F5F1E9] font-normal tracking-wide">

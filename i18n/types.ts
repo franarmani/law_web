@@ -19,7 +19,6 @@ type DotNestedKeys<T> =
               : `${K}`
           }[keyof T & string]
 
-/** Dot-path to a scalar or array-valued node used with `t()`. */
 export type MessageKey = DotNestedKeys<EsDictionary>
 
 export type FAQ = {

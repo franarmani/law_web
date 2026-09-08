@@ -1,4 +1,3 @@
-// components/home/ContactSection.tsx
 'use client'
 
 import { useState, type FormEvent } from 'react'
@@ -62,7 +61,6 @@ export default function ContactSection() {
     >
       <div className="mx-auto max-w-[1200px] px-5 min-[375px]:px-6 sm:px-8 lg:px-10">
         
-        {/* Section Header */}
         <SectionReveal delay={0}>
           <div className="pb-5 sm:pb-7 border-b border-[#DDD7CC]">
             <div className="flex items-center gap-2.5">
@@ -80,12 +78,9 @@ export default function ContactSection() {
           </div>
         </SectionReveal>
 
-        {/* Two Balanced Columns: Form & Structured Contact Details */}
         <SectionReveal delay={0.08}>
           <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
 
-          
-          {/* Form Column */}
           <div className="order-1 lg:order-2 lg:col-span-6 border border-[#DDD7CC] bg-[#FCFBF8] p-4 min-[375px]:p-5 sm:p-7 shadow-2xs">
             <h3 className="font-display text-[17px] min-[375px]:text-[18px] sm:text-[20px] font-semibold text-[#101D32]">
               Envianos tu consulta
@@ -109,13 +104,16 @@ export default function ContactSection() {
                     if (errors.name) setErrors((prev) => ({ ...prev, name: false }))
                   }}
                   autoComplete="name"
+                  aria-required="true"
+                  aria-invalid={errors.name ? 'true' : 'false'}
+                  aria-describedby={errors.name ? 'contact-name-error' : undefined}
                   className={`mt-1 h-[46px] w-full border bg-white px-3 font-sans text-[16px] text-[#20242A] placeholder-[#59616C]/60 outline-none transition-colors ${
                     errors.name ? 'border-red-500' : 'border-[#DDD7CC] focus:border-[#9A7538]'
                   }`}
                   placeholder={t('home.contact.form.namePlaceholder')}
                 />
                 {errors.name && (
-                  <p className="mt-1 font-sans text-xs text-red-500">
+                  <p id="contact-name-error" role="alert" className="mt-1 font-sans text-xs text-red-500">
                     Por favor, ingresá tu nombre completo.
                   </p>
                 )}
@@ -154,13 +152,16 @@ export default function ContactSection() {
                     if (errors.message) setErrors((prev) => ({ ...prev, message: false }))
                   }}
                   rows={3}
+                  aria-required="true"
+                  aria-invalid={errors.message ? 'true' : 'false'}
+                  aria-describedby={errors.message ? 'contact-message-error' : undefined}
                   className={`mt-1 min-h-[90px] w-full resize-y border bg-white p-3 font-sans text-[16px] text-[#20242A] placeholder-[#59616C]/60 outline-none transition-colors ${
                     errors.message ? 'border-red-500' : 'border-[#DDD7CC] focus:border-[#9A7538]'
                   }`}
                   placeholder={t('home.contact.form.messagePlaceholder')}
                 />
                 {errors.message && (
-                  <p className="mt-1 font-sans text-xs text-red-500">
+                  <p id="contact-message-error" role="alert" className="mt-1 font-sans text-xs text-red-500">
                     Por favor, describí brevemente tu consulta legal.
                   </p>
                 )}
@@ -168,17 +169,15 @@ export default function ContactSection() {
 
               <button
                 type="submit"
-                className="btn-primary mt-1.5 w-full h-[48px] min-h-[48px] text-[13.5px] font-semibold flex items-center justify-center text-center"
+                className="btn-primary mt-1.5 w-full"
               >
                 Consultar por WhatsApp
               </button>
             </form>
           </div>
 
-          {/* Structured Contact Block */}
           <div className="order-2 lg:order-1 lg:col-span-6 border border-[#DDD7CC] bg-[#F5F1E9]">
             
-            {/* Primary Phone Clearly Identified */}
             <div className="border-b border-[#DDD7CC] p-4 sm:p-6">
               <p className="font-sans text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-[#9A7538]">
                 Teléfono y WhatsApp Principal
@@ -202,7 +201,6 @@ export default function ContactSection() {
                 </span>
               </a>
 
-              {/* Collapsible Other Contacts */}
               <div className="mt-4 pt-3 border-t border-[#DDD7CC]/60">
                 <button
                   type="button"
@@ -239,7 +237,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Email */}
             <div className="border-b border-[#DDD7CC] p-4 sm:p-6">
               <p className="font-sans text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-[#9A7538]">
                 Correo Institucional
@@ -252,7 +249,6 @@ export default function ContactSection() {
               </a>
             </div>
 
-            {/* Location & Hours Grouped Compactly */}
             <div className="p-4 sm:p-6">
               <p className="font-sans text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-[#9A7538]">
                 Sede y Horarios de Atención

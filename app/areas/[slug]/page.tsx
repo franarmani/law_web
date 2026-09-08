@@ -1,4 +1,3 @@
-// app/areas/[slug]/page.tsx
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { areas, getArea } from '@/lib/areas'

@@ -1,4 +1,3 @@
-// components/home/FAQSection.tsx
 'use client'
 
 import { useState } from 'react'
@@ -20,7 +19,6 @@ export default function FAQSection() {
       <div className="mx-auto max-w-[1200px] px-5 min-[375px]:px-6 sm:px-8 lg:px-10">
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-14 xl:gap-18">
           
-          {/* Left Column: Heading */}
           <SectionReveal delay={0}>
             <div>
               <div className="flex items-center gap-2.5">
@@ -40,7 +38,6 @@ export default function FAQSection() {
             </div>
           </SectionReveal>
 
-          {/* Right Column: Clean Accordion List */}
           <SectionReveal delay={0.08}>
             <div className="flex flex-col border border-[#DDD7CC] bg-[#FCFBF8]">
               {items.map((item, i) => {

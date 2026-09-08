@@ -1,4 +1,3 @@
-// components/motion/SectionReveal.tsx
 'use client'
 
 import { motion, useReducedMotion } from 'motion/react'
@@ -10,14 +9,6 @@ interface SectionRevealProps {
   delay?: number
 }
 
-/**
- * Aparición suave y profesional para secciones.
- * - translateY de 18px a 0.
- * - Opacidad de 0 a 1.
- * - Duración de 500 ms con curva de desaceleración sin rebote.
- * - Ejecución única (once: true).
- * - Respeta prefers-reduced-motion.
- */
 export default function SectionReveal({
   children,
   className,

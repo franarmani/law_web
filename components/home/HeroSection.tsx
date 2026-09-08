@@ -1,4 +1,3 @@
-// components/home/HeroSection.tsx
 'use client'
 
 import { motion, useReducedMotion } from 'motion/react'
@@ -16,7 +15,6 @@ export default function HeroSection() {
       <div className="mx-auto max-w-[1200px] px-5 min-[375px]:px-6 sm:px-8 lg:px-10">
         <div className="flex flex-col items-center text-center mx-auto max-w-[850px]">
           
-          {/* 1. Fine gold line: 16px to label */}
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -26,7 +24,6 @@ export default function HeroSection() {
             <span className="h-[2px] w-8 bg-[#9A7538]" aria-hidden="true" />
           </motion.div>
 
-          {/* 2. Label: Institutional gold, bold uppercase tracking matching all sections: 24px to title */}
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -38,7 +35,6 @@ export default function HeroSection() {
             </p>
           </motion.div>
 
-          {/* 3. Title: Playfair Display, weight 500/600, fluid 31-40px mobile to 56-72px desktop, 20px to description */}
           <motion.h1
             initial={reduced ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -49,7 +45,6 @@ export default function HeroSection() {
             <span className="sm:block">Atención personal.</span>
           </motion.h1>
 
-          {/* 4. Description: Inter 16px mobile, 17-18px desktop, max-w-[460px], 28px to button */}
           <motion.p
             initial={reduced ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,7 +54,6 @@ export default function HeroSection() {
             Te acompañamos con claridad y una estrategia para tu caso.
           </motion.p>
 
-          {/* 5. Button: Navy with white text, ~50px height, centered, full width max 320px on mobile */}
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,7 +64,7 @@ export default function HeroSection() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center h-[50px] min-h-[50px] w-full max-w-[320px] sm:w-auto sm:max-w-none px-8 bg-[#101D32] text-white font-sans text-[14px] font-semibold border border-[#101D32] transition-all duration-200 hover:bg-[#9A7538] hover:border-[#9A7538] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A7538] shadow-xs"
+              className="btn-primary w-full max-w-[320px] sm:w-auto px-8"
             >
               Consultar por WhatsApp
             </a>

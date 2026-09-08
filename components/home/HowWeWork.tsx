@@ -1,4 +1,3 @@
-// components/home/HowWeWork.tsx
 'use client'
 
 import SectionReveal from '@/components/motion/SectionReveal'
@@ -35,7 +34,6 @@ export default function HowWeWork() {
     >
       <div className="mx-auto max-w-[1200px] px-5 min-[375px]:px-6 sm:px-8 lg:px-10">
         
-        {/* Section Header */}
         <SectionReveal delay={0}>
           <div className="max-w-2xl pb-5 sm:pb-7 border-b border-[#DDD7CC]">
             <div className="flex items-center gap-2.5">
@@ -53,9 +51,7 @@ export default function HowWeWork() {
           </div>
         </SectionReveal>
 
-        {/* Steps Content */}
         <SectionReveal delay={0.08}>
-          {/* Desktop 4-column layout */}
           <div className="relative mt-8 sm:mt-10 hidden lg:block">
             <div
               className="absolute left-4 right-4 top-4.5 h-[1px] bg-[#DDD7CC]"
@@ -71,12 +67,9 @@ export default function HowWeWork() {
                   } ${idx !== 3 ? 'pr-6 xl:pr-7' : ''}`}
                 >
                   <div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center">
                       <span className="relative z-10 flex h-9 w-9 items-center justify-center border border-[#DDD7CC] bg-[#FCFBF8] font-display text-[13px] font-semibold text-[#9A7538]">
                         {step.number}
-                      </span>
-                      <span className="font-sans text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#59616C]">
-                        Paso {idx + 1}
                       </span>
                     </div>
 
@@ -93,7 +86,6 @@ export default function HowWeWork() {
             </div>
           </div>
 
-          {/* Mobile / Tablet Vertical Timeline */}
           <div className="mt-6 sm:mt-8 lg:hidden flex flex-col">
             {steps.map((step, idx) => (
               <div key={step.title} className="flex gap-3.5 pb-5 last:pb-0 relative">
@@ -107,10 +99,7 @@ export default function HowWeWork() {
                   {step.number}
                 </span>
                 <div className="pt-0.5">
-                  <span className="font-sans text-[10px] font-bold uppercase tracking-[0.12em] text-[#9A7538] block">
-                    Paso {idx + 1}
-                  </span>
-                  <h3 className="mt-0.5 font-display text-[15.5px] min-[375px]:text-[16px] sm:text-[17px] font-semibold text-[#101D32] leading-snug">
+                  <h3 className="font-display text-[15.5px] min-[375px]:text-[16px] sm:text-[17px] font-semibold text-[#101D32] leading-snug">
                     {step.title}
                   </h3>
                   <p className="mt-1 font-sans text-[13px] min-[375px]:text-[13.5px] leading-[1.5] text-[#59616C]">

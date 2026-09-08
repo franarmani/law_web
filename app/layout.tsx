@@ -109,8 +109,14 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans text-graphite bg-warm-white antialiased selection:bg-gold-dark selection:text-white">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-[#101D32] focus:text-[#FCFBF8] focus:px-4 focus:py-2.5 focus:border focus:border-[#9A7538] focus:shadow-lg focus:font-sans focus:text-[13px] focus:font-semibold focus:outline-none"
+        >
+          Saltar al contenido principal
+        </a>
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <FloatingWhatsApp />
       </body>

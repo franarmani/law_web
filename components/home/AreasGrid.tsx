@@ -1,4 +1,3 @@
-// components/home/AreasGrid.tsx
 'use client'
 
 import Link from 'next/link'
@@ -15,7 +14,6 @@ export default function AreasGrid() {
     >
       <div className="mx-auto max-w-[1200px] px-5 min-[375px]:px-6 sm:px-8 lg:px-10">
         
-        {/* Section Header with Reveal */}
         <SectionReveal delay={0}>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-8 pb-5 sm:pb-7 border-b border-[#DDD7CC]">
             <div>
@@ -35,18 +33,15 @@ export default function AreasGrid() {
           </div>
         </SectionReveal>
 
-        {/* Practice Areas List: Clean rows with subtle dividers and auto height */}
         <SectionReveal delay={0.08}>
           <div className="border-b border-[#DDD7CC]">
             {areas.map((area, i) => (
               <Link
                 key={area.slug}
                 href={`/areas/${area.slug}`}
-                className="group relative block w-full border-t border-[#DDD7CC] py-4 sm:py-5 lg:py-6 px-3 min-[375px]:px-4 sm:px-6 lg:px-7 bg-[#FCFBF8] text-[#101D32] transition-colors duration-200 [@media(hover:hover)]:hover:bg-[#F5F1E9]/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#9A7538]"
+                className="group relative block w-full border-t border-[#DDD7CC] py-4 sm:py-5 lg:py-6 px-3 min-[375px]:px-4 sm:px-6 lg:px-7 bg-[#FCFBF8] text-[#101D32] transition-colors duration-200 [@media(hover:hover)]:hover:bg-[#F5F1E9]/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#9A7538] focus-visible:outline-offset-[-2px] focus-visible:z-10"
               >
-                {/* Desktop layout: 12-column grid */}
                 <div className="hidden lg:grid lg:grid-cols-12 gap-6 items-center">
-                  {/* Column 1: Numeral + Name (5 cols) */}
                   <div className="lg:col-span-5 flex items-center gap-5">
                     <span className="font-display text-[22px] font-semibold text-[#9A7538] shrink-0">
                       {String(i + 1).padStart(2, '0')}
@@ -56,14 +51,12 @@ export default function AreasGrid() {
                     </h3>
                   </div>
 
-                  {/* Column 2: Short explanation (~12 words) (6 cols) */}
                   <div className="lg:col-span-6 flex items-center">
                     <p className="font-sans text-[14.5px] leading-[1.55] text-[#59616C]">
                       {area.tagline}
                     </p>
                   </div>
 
-                  {/* Column 3: Arrow with controlled 3-4px translation (1 col) */}
                   <div className="lg:col-span-1 flex justify-end">
                     <span className="font-display text-[22px] text-[#9A7538] transition-transform duration-200 [@media(hover:hover)]:group-hover:translate-x-1 group-focus-visible:translate-x-1">
                       →
@@ -71,7 +64,6 @@ export default function AreasGrid() {
                   </div>
                 </div>
 
-                {/* Mobile / Tablet layout: Name, short ~12-word explanation, and clean arrow */}
                 <div className="flex items-center justify-between gap-4 lg:hidden">
                   <div className="flex flex-col min-w-0">
                     <div className="flex items-baseline gap-2">

@@ -1,4 +1,3 @@
-// components/areas/ServiceList.tsx
 'use client'
 
 import type { Area } from '@/lib/areas'
@@ -10,7 +9,6 @@ export default function ServiceList({ area }: { area: Area }) {
       <div className="mx-auto max-w-[1240px] px-4 min-[375px]:px-5 sm:px-6 md:px-8 lg:px-10">
         <div className="grid grid-cols-1 gap-6 sm:gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           
-          {/* Left Column: Heading & Description */}
           <div>
             <div className="flex items-center gap-2">
               <span className="h-px w-6 sm:w-8 bg-[#9A7538]" aria-hidden="true" />
@@ -28,7 +26,6 @@ export default function ServiceList({ area }: { area: Area }) {
             </p>
           </div>
 
-          {/* Right Column: List of Services */}
           <div className="border border-[#DDD7CC] bg-[#F5F1E9]">
             <ul className="flex flex-col">
               {area.services.map((service, i) => (

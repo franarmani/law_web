@@ -24,7 +24,6 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 - El logo en color vive en `public/logo/romio-color.jpg` (JPG con fondo blanco).
 - Para producción se recomienda reemplazarlo por **SVG o PNG con transparencia** y actualizar las referencias en `components/layout/Footer.tsx` (y donde se use `next/image`).
-- El monograma `RomioMonogram` es un recurso vectorial simplificado para fondos oscuros y no sustituye el logo oficial en alta calidad.
 
 ## Learn More
 

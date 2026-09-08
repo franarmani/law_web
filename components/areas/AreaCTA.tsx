@@ -1,4 +1,3 @@
-// components/areas/AreaCTA.tsx
 'use client'
 
 import { Area, buildWhatsappUrl } from '@/lib/areas'

@@ -12,7 +12,6 @@ const dictionaries = {
   typeof esDictionary
 >
 
-/** Development-only missing translation warning. */
 function warnMissing(path: string) {
   if (process.env.NODE_ENV === 'development') {
     console.warn(`[i18n] Missing translation key: ${path}`)
@@ -44,7 +43,6 @@ export function getDictionary(locale: Locale = DEFAULT_LOCALE) {
   return dictionaries[locale]
 }
 
-/** Area legal content keyed by slug (same keys as URLs). */
 export function getAreaContent(
   slug: keyof (typeof esDictionary)['areas']['content'],
   locale: Locale = DEFAULT_LOCALE,
@@ -53,7 +51,6 @@ export function getAreaContent(
   return row as AreaContent
 }
 
-/** Dot-path lookup + `{var}` interpolation. Returns string scalars only. */
 export function t<K extends MessageKey>(
   path: K,
   vars?: Record<string, string | number | undefined>,

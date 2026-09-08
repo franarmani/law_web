@@ -1,4 +1,3 @@
-// components/home/AboutTeamSection.tsx
 'use client'
 
 import { useState } from 'react'
@@ -45,12 +44,10 @@ export default function AboutTeamSection() {
       className="snap-section relative w-full bg-[#F5F1E9] py-9 min-[375px]:py-11 sm:py-16 lg:py-20 border-b border-[#DDD7CC]"
       aria-label="El estudio y sus profesionales"
     >
-      {/* Anchor for #profesionales */}
       <div id="profesionales" className="absolute -top-16 left-0" aria-hidden="true" />
 
       <div className="mx-auto max-w-[1200px] px-5 min-[375px]:px-6 sm:px-8 lg:px-10">
         
-        {/* Section Header & 2-sentence presentation */}
         <SectionReveal delay={0}>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-8 pb-5 sm:pb-7 border-b border-[#DDD7CC]">
             <div>
@@ -70,7 +67,6 @@ export default function AboutTeamSection() {
           </div>
         </SectionReveal>
 
-        {/* Professionals Cards: Clean, natural height */}
         <SectionReveal delay={0.08}>
           <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7">
 
@@ -85,7 +81,6 @@ export default function AboutTeamSection() {
                 className="flex flex-col justify-between border border-[#DDD7CC] bg-[#FCFBF8] p-4 min-[375px]:p-5 sm:p-7 shadow-2xs"
               >
                 <div>
-                  {/* Top bar with initials & bar registration */}
                   <div className="flex items-center justify-between gap-3 border-b border-[#DDD7CC] pb-3">
                     <span className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center border border-[#DDD7CC] bg-[#F5F1E9] font-display text-[12px] sm:text-[13px] font-semibold text-[#9A7538]">
                       {member.initials}
@@ -100,7 +95,6 @@ export default function AboutTeamSection() {
                     </div>
                   </div>
 
-                  {/* Name & University */}
                   <h3 className="mt-3.5 font-display text-[18px] min-[375px]:text-[19px] sm:text-[21px] font-semibold text-[#101D32]">
                     {member.name}
                   </h3>
@@ -109,7 +103,6 @@ export default function AboutTeamSection() {
                   </p>
                 </div>
 
-                {/* Trajectory Disclosure */}
                 <div className="mt-4 pt-3 border-t border-[#DDD7CC]">
                   <button
                     type="button"

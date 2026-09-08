@@ -1,4 +1,3 @@
-// components/areas/AreaFAQ.tsx
 'use client'
 
 import { useState } from 'react'
@@ -14,7 +13,6 @@ export default function AreaFAQ({ area }: { area: Area }) {
     <section className="w-full bg-[#F5F1E9] py-9 min-[375px]:py-11 sm:py-16 lg:py-24 border-t border-[#DDD7CC]">
       <div className="mx-auto max-w-[1240px] px-4 min-[375px]:px-5 sm:px-6 md:px-8 lg:px-10">
         
-        {/* Section Header */}
         <div className="mx-auto mb-7 sm:mb-12 max-w-2xl text-center">
           <div className="inline-flex items-center gap-2">
             <span className="h-px w-5 sm:w-7 bg-[#9A7538]" aria-hidden="true" />
@@ -28,7 +26,6 @@ export default function AreaFAQ({ area }: { area: Area }) {
           </h2>
         </div>
 
-        {/* Accordion Container */}
         <div className="mx-auto flex max-w-[860px] flex-col border border-[#DDD7CC] bg-[#FCFBF8]">
           {area.faq.map((item, i) => {
             const isOpen = openIndex === i

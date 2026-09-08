@@ -1,5 +1,3 @@
-// lib/areas.ts
-
 import { getAreaContent, t } from '@/i18n'
 import type { AreaContent } from '@/i18n'
 
@@ -24,10 +22,6 @@ export type Area = AreaMeta & AreaContent
 export const WHATSAPP_NUMBER = '5492233118656'
 export const CONTACT_EMAIL = 'romio.asociados@gmail.com'
 
-/**
- * Los tres teléfonos de contacto directo del estudio, sin identificar a
- * qué profesional pertenece cada uno (pedido explícito del cliente).
- */
 export const CONTACT_PHONES = [
   { number: '5492233118656', display: '+54 9 223 311-8656' },
   { number: '5492235895221', display: '+54 9 223 589-5221' },
@@ -64,5 +58,4 @@ export function getArea(slug: string): Area | undefined {
   return meta ? mergeArea(meta) : undefined
 }
 
-/** Alias for components that still iterate `areas`; prefer `getAreas()` where possible. */
 export const areas: Area[] = getAreas()

@@ -1,4 +1,3 @@
-// app/page.tsx
 import HeroSection from '@/components/home/HeroSection'
 import AreasGrid from '@/components/home/AreasGrid'
 import AboutTeamSection from '@/components/home/AboutTeamSection'
