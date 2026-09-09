@@ -259,6 +259,9 @@ export default function ContactSection() {
               <p className="mt-1 font-sans text-[13px] sm:text-[13.5px] text-[#59616C] leading-relaxed">
                 Lunes a Viernes de 9:00 a 17:00 hs · Modalidad presencial y virtual
               </p>
+              <p className="mt-1.5 font-sans text-[12px] sm:text-[12.5px] text-[#9A7538] font-medium leading-relaxed">
+                Zonas de atención: Mar del Plata · Partido de la Costa · Zona Norte Gran Buenos Aires
+              </p>
             </div>
 
           </div>

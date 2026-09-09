@@ -7,7 +7,6 @@ interface Professional {
   name: string
   role: string
   specialty: string
-  matricula: string
   initials: string
   bio: string
 }
@@ -17,7 +16,6 @@ const professionals: Professional[] = [
     name: 'Dra. María José Romio',
     role: 'Abogada',
     specialty: 'Universidad Nacional de Mar del Plata',
-    matricula: 'Colegiada en CAMDP · PBA',
     initials: 'MJR',
     bio: 'Prioriza la atención personalizada y el seguimiento riguroso de cada expediente, garantizando la máxima dedicación en cada caso que asume.',
   },
@@ -25,7 +23,6 @@ const professionals: Professional[] = [
     name: 'Dra. Noelia Dulewicz',
     role: 'Abogada',
     specialty: 'Universidad Kennedy',
-    matricula: 'Colegiada en CAMDP · PBA',
     initials: 'ND',
     bio: 'Combina experiencia en litigio tradicional con una mirada moderna y eficiente sobre cada caso.',
   },
@@ -86,11 +83,8 @@ export default function AboutTeamSection() {
                       {member.initials}
                     </span>
                     <div className="text-right min-w-0">
-                      <span className="font-sans text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.12em] text-[#9A7538] block truncate">
+                      <span className="font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.12em] text-[#9A7538] block">
                         {member.role}
-                      </span>
-                      <span className="font-sans text-[11px] sm:text-[11.5px] text-[#59616C] mt-0.5 block truncate">
-                        {member.matricula}
                       </span>
                     </div>
                   </div>
