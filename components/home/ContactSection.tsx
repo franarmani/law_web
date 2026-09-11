@@ -51,7 +51,7 @@ export default function ContactSection() {
 
   const primaryPhone = CONTACT_PHONES[0]
   const secondaryPhones = CONTACT_PHONES.slice(1)
-  const secondaryPhoneLabels = ['Dra. Noelia Dulewicz', 'Geraldine Zeppelina']
+  const secondaryPhoneLabels = ['Dra. Noelia Dulewicz', 'Geraldine Romio Llessi']
 
   return (
     <section
